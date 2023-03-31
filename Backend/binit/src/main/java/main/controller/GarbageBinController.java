@@ -33,6 +33,12 @@ public class GarbageBinController {
         }
     }
 
+    @GetMapping("/temp")
+    public int temp() {
+       return 123456789;
+    }
+
+
     @GetMapping("/getAllBins")
     public List<GarbageBin> getAllBins(){
         return garbageBinService.getAllGarbageBins();
