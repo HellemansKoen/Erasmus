@@ -16,12 +16,14 @@ export class CitymapPage implements OnInit {
 
   constructor(private garbagebinService: GarbagebinService) { }
 
-  ngOnInit() {
+  ngOnInit():void {
+
   }
 
   temp(){
-    this.garbagebinService.getBin();
+    console.log(this.garbagebinService.getBin());
   }
+
   addBin(lat: string, lng: string, kindBinString: string) {
     var kindOfBin;
     if (kindBinString == "plastic") {
