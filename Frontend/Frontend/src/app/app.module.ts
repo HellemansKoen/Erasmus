@@ -1,12 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
-
+import { RouterModule, Routes } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
-
 import { AppComponent } from './app.component';
-
-import { RouterModule } from '@angular/router';
 import { routes } from './app.routes';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -17,8 +14,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     HttpClientModule,
     IonicModule.forRoot(),
-    RouterModule.forRoot(routes),
-  ],
+    RouterModule.forRoot(routes)
+    ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
