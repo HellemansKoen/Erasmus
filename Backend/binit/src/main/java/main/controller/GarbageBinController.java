@@ -6,10 +6,6 @@ import main.service.GarbageBinService;
 import main.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.PrintStream;
 import java.util.List;
 
 @RequestMapping("/api/garbageBin")
@@ -24,24 +20,24 @@ public class GarbageBinController {
     private UserService userService;
 
     @PostMapping("/addBin")
-    public int addBin(@RequestBody GarbageBin garbageBin /*,long userId*/){
+    public int addBin(@RequestBody GarbageBin garbageBin /*,long userId*/) {
         System.out.println(123);
-    //    if (garbageBinService.addGarbageBin(garbageBin) == 1) {
-      //      User user = userService.findUserById(userId);
-       //     userService.addScore(10, user);
+        if (garbageBinService.addGarbageBin(garbageBin) == 1) {
+            // User user = userService.findUserById(userId);
+            // userService.addScore(10, user);
             return 1;
-     /*   } else {
+        } else {
             return 0;
-        }*/
+        }
     }
 
     @GetMapping("/temp")
     public int temp() {
-       return 123456789;
+        return 123456789;
     }
 
     @GetMapping("/getAllBins")
-    public List<GarbageBin> getAllBins(){
+    public List<GarbageBin> getAllBins() {
         return garbageBinService.getAllGarbageBins();
     }
 

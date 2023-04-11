@@ -28,6 +28,10 @@ export class LoginPage implements OnInit {
     return this.garbagebinService.getBin().subscribe();
   }
 
+  login(){
+    this.navigate("../tabs/citymap")
+  }
+
   navigate(location: string) {
     this.navigationService.navigate(location);
   }

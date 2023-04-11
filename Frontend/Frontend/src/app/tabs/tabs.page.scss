@@ -1,1 +1,9 @@
+.item {
+    color: #0c3148;
+}
 
+.item:active,
+.item:hover,
+.item:focus {
+    color: #f07f12;
+}

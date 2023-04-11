@@ -19,6 +19,6 @@ export class GarbagebinService {
   }
 
   addBin(bin: GarbageBin) {
-    return this.http.post('http://localhost:8080/api/garbageBin/addBin',{bin});
+    return this.http.post('http://localhost:8080/api/garbageBin/addBin', { bin });
   }
 }
