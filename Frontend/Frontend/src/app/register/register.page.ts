@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
+import { NavigationService } from '../service/navigation.service';
 
 @Component({
   selector: 'app-register',
@@ -12,9 +13,11 @@ import { IonicModule } from '@ionic/angular';
 })
 export class RegisterPage implements OnInit {
 
-  constructor() { }
+  constructor(private navigationService: NavigationService) { }
 
   ngOnInit() {
   }
-
+  navigate(location: string){
+    this.navigationService.navigate(location);
+  }
 }

@@ -3,7 +3,8 @@ package main.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="garbagBin")
+@Table(name="garbageb" +
+        "in")
 public class GarbageBin {
 
     @Id
