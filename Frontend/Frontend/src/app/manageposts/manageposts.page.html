@@ -1,0 +1,22 @@
+<ion-content [fullscreen]="true">
+    <ion-text color="primary">
+        <h1>Manage posts</h1>
+    </ion-text>
+    <ion-list>
+        <div *ngFor="let item of listPosts">
+            <ion-item>
+                <ion-thumbnail slot="start">
+                    <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/thumbnail.svg" />
+                </ion-thumbnail>
+                <ion-label style="text-transform: capitalize;">{{item.title}}</ion-label>
+            </ion-item>
+            <ion-button (click)="removePost(item.postId)" id="btnRemove">
+                <ion-icon name="trash-outline"></ion-icon>
+            </ion-button>
+        </div>
+    </ion-list>
+
+    <ion-button (click)="navigate('addpost')" id="btnAdd">
+        <ion-icon name="trash-outline"></ion-icon> Add post
+    </ion-button>
+</ion-content>

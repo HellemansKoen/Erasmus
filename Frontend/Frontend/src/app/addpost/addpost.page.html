@@ -1,13 +1,16 @@
-<ion-header [translucent]="true">
-    <ion-toolbar>
-        <ion-title>Addpost</ion-title>
-    </ion-toolbar>
-</ion-header>
-
+<!-- Color is green but need to be orange (-ion-color-success is used and not primary)-->
 <ion-content [fullscreen]="false">
+    <ion-text color="primary">
+        <h1>Add post</h1>
+    </ion-text>
     <ion-item class="inputLogin">
-        <ion-input label="Username" width="20%" labelPlacement="floating" placeholder="Enter username" id="temp"></ion-input>
+        <ion-input label="Title" width="20%" labelPlacement="floating" placeholder="Enter title" [(ngModel)]="title"></ion-input>
     </ion-item>
-    <ion-button (click)="save()">Log in</ion-button>
-
+    <ion-item class="inputLogin">
+        <ion-input label="City" width="20%" labelPlacement="floating" placeholder="Enter city" [(ngModel)]="city"></ion-input>
+    </ion-item>
+    <ion-item class="inputLogin">
+        <ion-textarea label="Content" [autoGrow]="true" width="20%" labelPlacement="floating" placeholder="Enter content" [(ngModel)]="content"></ion-textarea>
+    </ion-item>
+    <ion-button (click)="savePost()">Add post</ion-button>
 </ion-content>

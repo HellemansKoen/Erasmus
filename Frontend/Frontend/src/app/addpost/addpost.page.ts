@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
-import { GarbagebinService } from '../service/garbagebin.service';
-import { GarbageBin } from '../models/Garbagebin';
+import { PostService } from '../service/post.service';
 
 @Component({
   selector: 'app-addpost',
@@ -14,15 +13,28 @@ import { GarbageBin } from '../models/Garbagebin';
 })
 export class AddpostPage implements OnInit {
 
-  constructor( private garbagebinService: GarbagebinService) { }
+  title: string = "";
+  content: string = "";
+  city: string = "";
+
+  constructor(private postService: PostService) { }
 
   ngOnInit() {
   }
-  save(){
-    var bin = new GarbageBin("20","15");
-    var temp = this.garbagebinService.addBin(bin);
-    console.log(temp);
-    console.log(bin);
-  }
 
+  savePost() {
+    var now = new Date();
+    var dd = now.getDate() + 1;
+    var mm = now.getMonth() + 1;
+    var yyyy = now.getFullYear();
+    var date = new Date(yyyy + "-" + mm + "-" + dd);
+    const post = {
+      'postId': '',
+      'title': this.title,
+      'city': this.city,
+      'content': this.content,
+      "date": date
+    }
+    this.postService.addPost(post).subscribe(() => console.log("post added"));
+  }
 }

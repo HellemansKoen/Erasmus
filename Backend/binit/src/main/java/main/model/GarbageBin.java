@@ -8,7 +8,6 @@ public class GarbageBin {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-  //  @ManyToOne
     private int binId;
 
     @Column
@@ -17,6 +16,8 @@ public class GarbageBin {
     @Column
     private String lng;
 
+
+    @Enumerated(EnumType.STRING)
     @Column
     private KindBin kindBin;
 

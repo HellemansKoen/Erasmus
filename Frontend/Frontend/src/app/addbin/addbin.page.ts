@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { KindBin } from '../models/KindBin';
+import { GarbagebinService } from '../service/garbagebin.service';
 
 @Component({
   selector: 'app-addbin',
@@ -13,7 +14,7 @@ import { KindBin } from '../models/KindBin';
 })
 export class AddbinPage implements OnInit {
 
-  constructor() { }
+  constructor(private garbagebinService: GarbagebinService) { }
 
   ngOnInit() {
   }
@@ -30,11 +31,11 @@ export class AddbinPage implements OnInit {
       kindOfBin = KindBin.RESIDUAL;
     }
     const bin = {
-      'id': '',
+      'binId': '',
       'lat': lat,
       'lng': lng,
       'kindBin': kindOfBin
     }
-   // this.garbagebinService.getBin()
+    this.garbagebinService.addBin(bin);
   }
 }

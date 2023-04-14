@@ -7,10 +7,11 @@
         <ion-item class="inputLogin">
             <ion-input label="Password" type="password" width="20%" labelPlacement="floating" placeholder="Enter password"></ion-input>
         </ion-item>
-        <div class="divLogin">
+        <div class="divbuttons">
             <ion-button (click)="login()">Log in</ion-button>
-            <br>
-            <a (click)="navigate('register')" id="register">No account yet</a>
+            <ion-button fill="outline" (click)="navigate('register')" id="noAccount">No account yet</ion-button>
         </div>
+        <a (click)="navigate('forgotpassword')" id="forgotpassword">Forgot password</a>
+
     </div>
 </ion-content>

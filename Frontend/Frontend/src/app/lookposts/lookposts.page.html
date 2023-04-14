@@ -1,13 +1,19 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>lookposts</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">lookposts</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <ion-text color="primary">
+        <h1>Information form</h1>
+    </ion-text>
+    <div *ngFor="let item of listPosts">
+        <ion-card class="card">
+            <ion-img src="https://docs-demo.ionic.io/assets/madison.jpg" class="img"></ion-img>
+            <ion-card-header>
+                <ion-card-title>{{item.title}}</ion-card-title>
+                <ion-card-subtitle>{{item.city}}</ion-card-subtitle>
+            </ion-card-header>
+            <ion-card-content>{{item.content}}</ion-card-content>
+            <ion-card-content>{{item.date}}</ion-card-content>
+        </ion-card>
+    </div>
+    <div *ngIf="listPosts.length == 0">
+        <p>No posts yet</p>
+    </div>
 </ion-content>

@@ -1,7 +1,6 @@
 package main.model;
 
 import jakarta.persistence.*;
-
 import java.util.List;
 
 @Entity
@@ -10,7 +9,6 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
- //   @ManyToOne
     private int userId;
 
     @Column
@@ -25,13 +23,20 @@ public class User {
     @Column
     private String password;
 
-     @ElementCollection
+/*     @ElementCollection
      private List<Badge> listBadges;
-
+*/
     // Constructors
     public User() {
     }
 
+    public User(int userId, String username, String email, int score, String password) {
+        this.userId = userId;
+        this.username = username;
+        this.email = email;
+        this.score = score;
+        this.password = password;
+    }
 
     // Methodes
 
@@ -76,12 +81,23 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-
- /*   public List<Badge> getListBadges() {
+/*
+    public List<Badge> getListBadges() {
         return listBadges;
     }
 
     public void setListBadges(List<Badge> listBadges) {
         this.listBadges = listBadges;
     }*/
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", score=" + score +
+                ", userId=" + userId +
+                ", username='" + username + '\'' +
+                '}';
+    }
 }

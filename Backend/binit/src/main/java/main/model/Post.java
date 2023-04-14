@@ -2,10 +2,11 @@ package main.model;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name="post")
+@Table(name = "post")
 public class Post {
 
     @Id
@@ -16,7 +17,10 @@ public class Post {
     private String title;
 
     @Column
-    private LocalDateTime date;
+    private LocalDate date;
+
+    @Column
+    private String city;
 
     @Column
     private String content;
@@ -25,20 +29,19 @@ public class Post {
     public Post() {
     }
 
-    public Post(int postId, String title, LocalDateTime date, String content) {
+    public Post(int postId, String title, LocalDate date, String city, String content) {
         this.postId = postId;
         this.title = title;
         this.date = date;
+        this.city = city;
         this.content = content;
     }
-
-// Getters and Setters
-
-    public LocalDateTime getDate() {
+    // Getters and Setters
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(LocalDateTime date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
@@ -64,5 +67,24 @@ public class Post {
 
     public void setPostId(int postId) {
         this.postId = postId;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                "city='" + city + '\'' +
+                ", content='" + content + '\'' +
+                ", date=" + date +
+                ", postId=" + postId +
+                ", title='" + title + '\'' +
+                '}';
     }
 }

@@ -1,17 +1,12 @@
 import { Routes } from '@angular/router';
 
 export const routes: Routes = [
- /*{
+ {
     path: '',
     loadComponent: () => import('./login/login.page').then( m => m.LoginPage)
-  },*/
+  },
   {
     path: '',
-    loadChildren: () => import('./tabs/tabs.routes').then((m) => m.routes),
-  },
-  // Can't follow why it doeesn't work -> citymap on this place is without the tabs
-  {
-    path: 'test',
     loadChildren: () => import('./tabs/tabs.routes').then((m) => m.routes),
   },
   {
@@ -23,20 +18,23 @@ export const routes: Routes = [
     loadComponent: () => import('./register/register.page').then( m => m.RegisterPage)
   },
   {
-    path: 'addbin',
-    loadComponent: () => import('./addbin/addbin.page').then( m => m.AddbinPage)
-  },
-  /*{
-    path: 'lookposts',
-    loadComponent: () => import('./lookposts/lookposts.page').then( m => m.LookpostsPage)
-  },*/
-  {
     path: 'addpost',
-    loadComponent: () => import('./addpost/addpost.page').then( m => m.AddpostPage)
+    loadComponent: () => import('./addpost/addpost.page').then(m => m.AddpostPage)
   },
   {
-    path: 'profile',
-    loadComponent: () => import('./profile/profile.page').then( m => m.ProfilePage)
+    path: 'menu',
+    loadComponent: () => import('./menu/menu.page').then( m => m.MenuPage)
   },
- 
+  {
+    path: 'managebins',
+    loadComponent: () => import('./managebins/managebins.page').then( m => m.ManagebinsPage)
+  },
+  {
+    path: 'manageposts',
+    loadComponent: () => import('./manageposts/manageposts.page').then( m => m.ManagepostsPage)
+  },
+  {
+    path: 'forgotpassword',
+    loadComponent: () => import('./forgotpassword/forgotpassword.page').then( m => m.ForgotpasswordPage)
+  },
 ];

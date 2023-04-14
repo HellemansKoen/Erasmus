@@ -2,8 +2,8 @@ ion-input {
     width: 20%;
 }
 
-.divLogin {
-    margin-left: 50%;
+.divbuttons {
+    margin-left: 40%;
 }
 
 .inputLogin {
@@ -11,8 +11,11 @@ ion-input {
     width: 600px;
 }
 
-#register:hover {
+#forgotpassword,
+#forgotpassword:hover {
+    margin-top: 100px;
     cursor: pointer;
+    margin-left: 45%;
 }
 
 .logo {
@@ -24,4 +27,12 @@ ion-input {
 #inloginformation {
     margin: 10%;
     padding: 20px;
+}
+
+#register {
+    background-color: red;
+}
+
+ion-button {
+    margin-left: 20px;
 }

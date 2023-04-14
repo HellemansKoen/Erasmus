@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { NavigationService } from '../service/navigation.service';
+import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'app-register',
@@ -12,12 +13,26 @@ import { NavigationService } from '../service/navigation.service';
   imports: [IonicModule, CommonModule, FormsModule]
 })
 export class RegisterPage implements OnInit {
-
-  constructor(private navigationService: NavigationService) { }
+  username = "";
+  password = "";
+  email = "";
+  constructor(private navigationService: NavigationService, private userService: UserService) { }
 
   ngOnInit() {
   }
-  navigate(location: string){
+
+  addUser() {
+    const user = {
+      "email": this.email,
+      "username": this.username,
+      "password": this.password
+    }
+    this.userService.addUser(user).subscribe(() => {
+      console.log("user added");
+    });
+    this.navigate("login")
+  }
+  navigate(location: string) {
     this.navigationService.navigate(location);
   }
 }

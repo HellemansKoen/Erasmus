@@ -3,7 +3,7 @@ import { TabsPage } from './tabs.page';
 
 export const routes: Routes = [
   {
-    path: 'tabs',
+    path: '',
     component: TabsPage,
     children: [
       {
@@ -11,6 +11,10 @@ export const routes: Routes = [
         loadComponent: () =>
           import('../citymap/citymap.page').then((m) => m.CitymapPage)
       },
+      {
+        path: 'addbin',
+        loadComponent: () => import('../addbin/addbin.page').then( m => m.AddbinPage)
+      }, 
       {
         path: 'lookposts',
         loadComponent: () =>

@@ -5,23 +5,21 @@ import { IonicModule } from '@ionic/angular';
 import { NavigationService } from '../service/navigation.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.page.html',
-  styleUrls: ['./login.page.scss'],
+  selector: 'app-menu',
+  templateUrl: './menu.page.html',
+  styleUrls: ['./menu.page.scss'],
   standalone: true,
   imports: [IonicModule, CommonModule, FormsModule]
 })
-export class LoginPage implements OnInit {
+export class MenuPage implements OnInit {
 
   constructor(private navigationService: NavigationService) { }
+
   ngOnInit() {
   }
 
-  login(){
-    this.navigate("citymap");
-  }
-
-  navigate(url: string) {
+  navigate(url:string){
     this.navigationService.navigate(url);
   }
+
 }
