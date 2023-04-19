@@ -4,7 +4,6 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { NavigationService } from '../service/navigation.service';
 import { PostService } from '../service/post.service';
-import { Post } from '../models/Post';
 
 @Component({
   selector: 'app-manageposts',
@@ -14,7 +13,7 @@ import { Post } from '../models/Post';
   imports: [IonicModule, CommonModule, FormsModule]
 })
 export class ManagepostsPage implements OnInit {
-  listPosts: Post[] =[];
+  listPosts: any[] =[];
 
   constructor(private navigationService: NavigationService, private postService: PostService) { }
 

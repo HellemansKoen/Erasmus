@@ -65,10 +65,11 @@ public class UserService {
         }
     }
 
-    public int resetPassword(long userId, String newPassword) {
+    public int resetPassword(String email, String newPassword) {
         try {
-            User user = findUserById(userId);
+            User user = userRepository.findUserByEmail(email);
             user.setPassword(newPassword);
+            userRepository.save(user);
             return 1;
         } catch (Exception e) {
             return 0;

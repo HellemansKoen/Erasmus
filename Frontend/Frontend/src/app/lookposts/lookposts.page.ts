@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { PostService } from '../service/post.service';
-import { Post } from '../models/Post';
 
 @Component({
   selector: 'app-lookposts',
@@ -13,7 +12,8 @@ import { Post } from '../models/Post';
   imports: [IonicModule, CommonModule, FormsModule]
 })
 export class LookpostsPage implements OnInit {
-  listPosts: Post[] =[];
+
+  listPosts: any[] =[];
 
   constructor(private postService: PostService) { }
 

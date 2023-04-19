@@ -24,15 +24,15 @@ export class ForgotpasswordPage implements OnInit {
   ngOnInit() {
   }
 
+
   resetPassword() {
     if (this.isPasswordCorrect()) {
       const resetPasswordObj = {
         "email": this.email,
-        "password": this.password,
-        "passwordAgain": this.passwordAgain
+        "password": this.password
       }
       this.error = false;
-      this.userService.resetPassword(resetPasswordObj);
+      this.userService.resetPassword(resetPasswordObj).subscribe(() => console.log("password changed"));
       this.navigation("login")
     } else {
       this.error = true

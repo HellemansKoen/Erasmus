@@ -21,7 +21,10 @@ export class AddpostPage implements OnInit {
 
   ngOnInit() {
   }
+/// Leafled try
 
+
+//
   savePost() {
     var now = new Date();
     var dd = now.getDate() + 1;

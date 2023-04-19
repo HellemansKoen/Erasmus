@@ -1,5 +1,6 @@
 package main.controller;
 
+import main.model.ResetPasswordObject;
 import main.model.User;
 import main.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,8 +45,8 @@ public class UserController {
     }
 
     @PutMapping("/resetPassword")
-    public int resetPassword(long userId, String password) {
-        if (userService.resetPassword(userId, password) == 1) {
+    public int resetPassword(@RequestBody ResetPasswordObject obj) {
+        if (userService.resetPassword(obj.getEmail(), obj.getPassword()) == 1) {
             return 1;
         } else {
             return 0;

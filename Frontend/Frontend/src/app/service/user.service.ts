@@ -13,7 +13,6 @@ export class UserService {
   }
 
   resetPassword(resetPasswordObj: any) {
-    console.log(resetPasswordObj);
-    return this.http.post('http://localhost:8080/api/user/resetPassword', resetPasswordObj);
+    return this.http.put('http://localhost:8080/api/user/resetPassword', resetPasswordObj);
   }
 }
