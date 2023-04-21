@@ -25,17 +25,22 @@ public class Post {
     @Column
     private String content;
 
+    @Column
+    private String imageUrl;
+
     // Constructors
     public Post() {
     }
 
-    public Post(int postId, String title, LocalDate date, String city, String content) {
+    public Post(int postId, String title, LocalDate date, String city, String content, String imageUrl) {
         this.postId = postId;
         this.title = title;
         this.date = date;
         this.city = city;
         this.content = content;
+        this.imageUrl = imageUrl;
     }
+
     // Getters and Setters
     public LocalDate getDate() {
         return date;
@@ -77,12 +82,21 @@ public class Post {
         this.city = city;
     }
 
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
     @Override
     public String toString() {
         return "Post{" +
                 "city='" + city + '\'' +
                 ", content='" + content + '\'' +
                 ", date=" + date +
+                ", imageUrl='" + imageUrl + '\'' +
                 ", postId=" + postId +
                 ", title='" + title + '\'' +
                 '}';

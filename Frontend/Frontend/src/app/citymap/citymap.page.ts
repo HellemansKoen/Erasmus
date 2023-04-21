@@ -7,6 +7,7 @@ import { ExploreContainerComponent } from "../explore-container/explore-containe
 import { GarbagebinService } from '../service/garbagebin.service';
 import { KindBin } from '../models/KindBin';
 import { GarbageBin } from '../models/GarbageBin';
+import * as Leaflet from 'leaflet';
 
 @Component({
   selector: 'app-citymap',
@@ -19,6 +20,9 @@ export class CitymapPage implements OnInit {
 
   constructor(private navigationService: NavigationService, private garbagebinService: GarbagebinService) { }
   AllBins: GarbageBin[] = []
+
+  map: Leaflet.Map | undefined
+
   ngOnInit(): void {
     this.garbagebinService.getAllBins().subscribe(bins => {
       for (let bin = 0; bin < bins.length; bin++) {
@@ -26,6 +30,19 @@ export class CitymapPage implements OnInit {
       }
     })
   }
+  ionViewDidEnter(){
+    this.leafletMap();
+  }
+
+  /// Leafled try
+  leafletMap() {
+    this.map = Leaflet.map('mapId').setView([41.179014, -8.608021], 5);
+    var OpenStreetMap_Mapnik = Leaflet.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+    });
+    this.map.addLayer(OpenStreetMap_Mapnik);
+  }
+
 
   addBin(lat: string, lng: string, kindBinString: string) {
     var kindOfBin;

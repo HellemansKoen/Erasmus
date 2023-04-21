@@ -13,13 +13,17 @@ import { PostService } from '../service/post.service';
 })
 export class LookpostsPage implements OnInit {
 
-  listPosts: any[] =[];
+  listPosts: any[] = [];
 
   constructor(private postService: PostService) { }
 
   ngOnInit(): void {
     this.postService.getAllPosts().subscribe(posts => {
       for (let post = 0; post < posts.length; post++) {
+        console.log(posts[post].imageUrl);
+        let blobUrl = URL.createObjectURL(posts[post].imageUrl);
+        let img = document.getElementById('img') as HTMLImageElement;
+        img.src = blobUrl;
         this.listPosts.push(posts[post]);
       }
     })

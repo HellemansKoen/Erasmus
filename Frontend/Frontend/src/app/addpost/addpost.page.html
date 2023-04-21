@@ -12,5 +12,9 @@
     <ion-item class="inputLogin">
         <ion-textarea label="Content" [autoGrow]="true" width="20%" labelPlacement="floating" placeholder="Enter content" [(ngModel)]="content"></ion-textarea>
     </ion-item>
+    <ion-item>
+        <ion-icon lazy="true" slot="start" name="image"></ion-icon>
+        <ion-input type="file" data-buttonText="Your label here." (change)="loadImageFromDevice($event)"></ion-input>
+    </ion-item>
     <ion-button (click)="savePost()">Add post</ion-button>
 </ion-content>
