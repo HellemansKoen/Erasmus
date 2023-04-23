@@ -16,6 +16,7 @@ export class RegisterPage implements OnInit {
   username = "";
   password = "";
   email = "";
+
   constructor(private navigationService: NavigationService, private userService: UserService) { }
 
   ngOnInit() {
@@ -23,9 +24,12 @@ export class RegisterPage implements OnInit {
 
   addUser() {
     const user = {
-      "email": this.email,
-      "username": this.username,
-      "password": this.password
+      'userId': '',
+      'email': this.email,
+      'username': this.username,
+      'score': 0,
+      'password': this.password,
+      'role': 'user'
     }
     this.userService.addUser(user).subscribe(() => {
       console.log("user added");

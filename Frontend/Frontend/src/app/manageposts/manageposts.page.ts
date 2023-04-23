@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { NavigationService } from '../service/navigation.service';
 import { PostService } from '../service/post.service';
+import { log } from 'console';
 
 @Component({
   selector: 'app-manageposts',
@@ -13,7 +14,7 @@ import { PostService } from '../service/post.service';
   imports: [IonicModule, CommonModule, FormsModule]
 })
 export class ManagepostsPage implements OnInit {
-  listPosts: any[] =[];
+  listPosts: any[] = [];
 
   constructor(private navigationService: NavigationService, private postService: PostService) { }
 
@@ -26,9 +27,12 @@ export class ManagepostsPage implements OnInit {
   }
 
   removePost(postId: string) {
-
+    this.postService.getPostById(postId).subscribe(posts => {
+      console.log(posts[0]);
+    })
+    //   this.postService.removePost(post).subscribe(() => console.log("post removed"));
   }
-  
+
   navigate(url: string) {
     this.navigationService.navigate(url)
   }

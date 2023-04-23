@@ -26,6 +26,7 @@ public class PostService {
         }
     }
 
+
     public int deletePost(Post post) {
         try {
             postRepository.delete(post);
@@ -33,6 +34,10 @@ public class PostService {
         } catch (Exception e) {
             return 0;
         }
+    }
+
+    public Post getPostById(long postId) {
+        return postRepository.findPostByPostId(postId);
     }
 
     public List<Post> getAllPosts() {

@@ -1,10 +1,9 @@
 package main.model;
 
 import jakarta.persistence.*;
-import java.util.List;
 
 @Entity
-@Table(name="user")
+@Table(name = "user")
 public class User {
 
     @Id
@@ -23,19 +22,23 @@ public class User {
     @Column
     private String password;
 
-/*     @ElementCollection
-     private List<Badge> listBadges;
-*/
+    @Column
+    private String role;
+
+    //     @ElementCollection
+    //     private List<Badge> listBadges;
+
     // Constructors
     public User() {
     }
 
-    public User(int userId, String username, String email, int score, String password) {
+    public User(int userId, String username, String email, int score, String password, String role) {
         this.userId = userId;
         this.username = username;
         this.email = email;
         this.score = score;
         this.password = password;
+        this.role = role;
     }
 
     // Methodes
@@ -81,20 +84,21 @@ public class User {
     public void setPassword(String password) {
         this.password = password;
     }
-/*
-    public List<Badge> getListBadges() {
-        return listBadges;
+
+    public String getRole() {
+        return role;
     }
 
-    public void setListBadges(List<Badge> listBadges) {
-        this.listBadges = listBadges;
-    }*/
+    public void setRole(String role) {
+        this.role = role;
+    }
 
     @Override
     public String toString() {
         return "User{" +
                 "email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
                 ", score=" + score +
                 ", userId=" + userId +
                 ", username='" + username + '\'' +

@@ -2,11 +2,14 @@
     <div id="inloginformation">
         <ion-img class="logo" src="../assets/icon/logo.png"></ion-img>
         <ion-item class="inputLogin">
-            <ion-input label="Username" width="20%" labelPlacement="floating" placeholder="Enter username"></ion-input>
+            <ion-input label="Username" width="20%" labelPlacement="floating" placeholder="Enter username" [(ngModel)]="username"></ion-input>
         </ion-item>
         <ion-item class="inputLogin">
-            <ion-input label="Password" type="password" width="20%" labelPlacement="floating" placeholder="Enter password"></ion-input>
+            <ion-input label="Password" type="password" width="20%" labelPlacement="floating" placeholder="Enter password" [(ngModel)]="password"></ion-input>
         </ion-item>
+        <p *ngIf="loginError" id="loginError">
+            There is something wrong with your username or password. Please try again
+        </p>
         <div class="divbuttons">
             <ion-button (click)="login()">Log in</ion-button>
             <ion-button fill="outline" (click)="navigate('register')" id="noAccount">No account yet</ion-button>

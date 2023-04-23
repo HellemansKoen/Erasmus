@@ -20,10 +20,12 @@ export class LookpostsPage implements OnInit {
   ngOnInit(): void {
     this.postService.getAllPosts().subscribe(posts => {
       for (let post = 0; post < posts.length; post++) {
+        /*
         console.log(posts[post].imageUrl);
         let blobUrl = URL.createObjectURL(posts[post].imageUrl);
-        let img = document.getElementById('img') as HTMLImageElement;
-        img.src = blobUrl;
+         let img = document.getElementById('img') as HTMLImageElement;
+         img.src = blobUrl;
+         */
         this.listPosts.push(posts[post]);
       }
     })

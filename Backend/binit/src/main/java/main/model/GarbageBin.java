@@ -16,7 +16,6 @@ public class GarbageBin {
     @Column
     private String lng;
 
-
     @Enumerated(EnumType.STRING)
     @Column
     private KindBin kindBin;

@@ -24,7 +24,7 @@ export class AddpostPage implements OnInit {
 
   savePost() {
     var now = new Date();
-    var dd = now.getDate() + 1;
+    var dd = now.getDate() + 2;
     var mm = now.getMonth() + 1;
     var yyyy = now.getFullYear();
     var date = new Date(yyyy + "-" + mm + "-" + dd);
