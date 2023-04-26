@@ -5,7 +5,6 @@ import main.model.User;
 import main.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -16,12 +15,14 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    // OK
     @PostMapping("/addUser")
     public void addUser(@RequestBody User user) {
         System.out.println("123"+user);
         userService.addUser(user);
     }
 
+    // OK
     @GetMapping("/getAllUsers")
     public List<User> getAllUsers() {
         List<User> allUsers = userService.findAllUsers();
@@ -44,6 +45,7 @@ public class UserController {
         userService.removeUser(userid);
     }
 
+    // OK
     @PutMapping("/resetPassword")
     public int resetPassword(@RequestBody ResetPasswordObject obj) {
         if (userService.resetPassword(obj.getEmail(), obj.getPassword()) == 1) {

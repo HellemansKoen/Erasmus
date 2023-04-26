@@ -13,7 +13,6 @@ import { PostService } from '../service/post.service';
 })
 export class AddpostPage implements OnInit {
 
-
   title: string = "";
   content: string = "";
   city: string = "";

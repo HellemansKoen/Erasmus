@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { NavigationService } from '../service/navigation.service';
 import { UserService } from '../service/user.service';
+const CryptoJS = require('crypto-js');
 
 @Component({
   selector: 'app-login',
@@ -30,9 +31,8 @@ export class LoginPage implements OnInit {
 
   login() {
     for (let user = 0; user < this.listUsers.length; user++) {
-      console.log(this.listUsers[user].username == this.username);
-      console.log(this.listUsers[user].password == this.password);
-      if (this.listUsers[user].username = this.username && this.listUsers[user].password == this.password) {
+      if (this.listUsers[user].username = this.username && this.listUsers[user].password == this.incryptPassword(this.password)) {
+       alert()
         console.log(this.listUsers[user].role);
         if (this.listUsers[user].role == "user") {
           this.navigationService.navigate("citymap")
@@ -41,10 +41,12 @@ export class LoginPage implements OnInit {
         }
       }
       else {
-        alert("Not succesfull")
         this.loginError = true;
       }
     }
+  }
+  incryptPassword(password: string) {
+    return CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(password));
   }
 
   navigate(url: string) {

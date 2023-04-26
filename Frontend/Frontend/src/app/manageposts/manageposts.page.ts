@@ -27,10 +27,7 @@ export class ManagepostsPage implements OnInit {
   }
 
   removePost(postId: string) {
-    this.postService.getPostById(postId).subscribe(posts => {
-      console.log(posts[0]);
-    })
-    //   this.postService.removePost(post).subscribe(() => console.log("post removed"));
+     this.postService.removePost(postId).subscribe(() => console.log("post removed"));
   }
 
   navigate(url: string) {

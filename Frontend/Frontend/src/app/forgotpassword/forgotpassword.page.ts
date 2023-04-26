@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { NavigationService } from '../service/navigation.service';
 import { UserService } from '../service/user.service';
+const CryptoJS = require('crypto-js');
 
 @Component({
   selector: 'app-forgotpassword',
@@ -24,12 +25,11 @@ export class ForgotpasswordPage implements OnInit {
   ngOnInit() {
   }
 
-
   resetPassword() {
     if (this.isPasswordCorrect()) {
       const resetPasswordObj = {
         "email": this.email,
-        "password": this.password
+        "password": this.incryptPassword(this.password)
       }
       this.error = false;
       this.userService.resetPassword(resetPasswordObj).subscribe(() => console.log("password changed"));
@@ -48,5 +48,8 @@ export class ForgotpasswordPage implements OnInit {
   }
   navigation(url: string) {
     this.navigationService.navigate(url);
+  }
+  incryptPassword(password: string) {
+    return CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(password));
   }
 }

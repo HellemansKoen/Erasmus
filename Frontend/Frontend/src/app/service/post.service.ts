@@ -19,11 +19,11 @@ export class PostService {
     return this.http.get<any[]>('http://localhost:8080/api/post/getAllPosts');
   }
 
-  public removePost(post: any) {
-    return this.http.delete(`http://localhost:8080/api/post/deletePost/`, post);
+  public removePost(postId: any) {
+    return this.http.delete(`http://localhost:8080/api/post/deletePost?postId=${postId}`);
   }
 
   public getPostById(postId: any): Observable<any> {
-    return this.http.get<any>(`http://localhost:8080/api/post/getPostById`, postId);
+    return this.http.get<any>(`http://localhost:8080/api/post/getPostById?postId=${postId}`);
   }
 }

@@ -1,6 +1,5 @@
 package main.controller;
 
-import jakarta.websocket.server.PathParam;
 import main.model.Post;
 import main.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,25 +14,27 @@ public class PostController {
     @Autowired
     PostService postService;
 
+    // OK
     @PostMapping("/addPost")
     public void addPost(@RequestBody Post post) {
         postService.addPost(post);
     }
 
+    // OK
     @GetMapping("/getAllPosts")
     public List getAllBins() {
         return postService.getAllPosts();
     }
 
-    @PutMapping("/deletePost")
-    public void deletePost(@RequestBody Post post) {
-        postService.deletePost(post);
+    // OK
+    @DeleteMapping("/deletePost")
+    public void deletePost(@RequestParam long postId) {
+        postService.deletePost(postService.getPostById(postId));
     }
 
+    // OK
     @GetMapping("/getPostById")
-    public Post getPostById(@RequestBody long postId) {
-        System.out.println("123");
+    public Post getPostById(@RequestParam long postId) {
         return postService.getPostById(postId);
     }
-
 }
