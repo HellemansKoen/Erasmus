@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin()
 @RestController
 @RequestMapping("/api/user")
 public class UserController {
@@ -17,7 +16,6 @@ public class UserController {
     UserService userService;
 
     // NOK
-    // @CrossOrigin(origins = "http://localhost:8100/")
     @PostMapping("/addUser")
     public void addUser(@RequestBody User user) {
         System.out.println("222");
