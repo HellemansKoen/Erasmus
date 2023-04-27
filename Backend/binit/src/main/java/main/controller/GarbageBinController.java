@@ -10,7 +10,7 @@ import java.util.List;
 
 @RequestMapping("/api/garbageBin")
 @RestController
-@CrossOrigin()
+@CrossOrigin(origins = "*", maxAge = 3600)
 public class GarbageBinController {
 
     @Autowired

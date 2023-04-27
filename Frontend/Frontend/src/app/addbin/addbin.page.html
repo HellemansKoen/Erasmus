@@ -1,13 +1,7 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>addbin</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">addbin</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <ion-icon name="arrow-back-outline" (click)="navigate('citymap')"></ion-icon>
+    <ion-text color="primary">
+        <h1>Add post</h1>
+    </ion-text>
+    <ion-button (click)="saveBin()">Add post</ion-button>
 </ion-content>

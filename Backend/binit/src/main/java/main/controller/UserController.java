@@ -5,9 +5,10 @@ import main.model.User;
 import main.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
-@CrossOrigin(origins = "*", maxAge = 3600)
+@CrossOrigin()
 @RestController
 @RequestMapping("/api/user")
 public class UserController {
@@ -15,10 +16,11 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    // OK
+    // NOK
+    // @CrossOrigin(origins = "http://localhost:8100/")
     @PostMapping("/addUser")
     public void addUser(@RequestBody User user) {
-        System.out.println("123"+user);
+        System.out.println("222");
         userService.addUser(user);
     }
 
@@ -54,4 +56,7 @@ public class UserController {
             return 0;
         }
     }
+
+
+
 }

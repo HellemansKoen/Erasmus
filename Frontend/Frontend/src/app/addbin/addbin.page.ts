@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { KindBin } from '../models/KindBin';
 import { GarbagebinService } from '../service/garbagebin.service';
+import { NavigationService } from '../service/navigation.service';
 
 @Component({
   selector: 'app-addbin',
@@ -14,7 +15,7 @@ import { GarbagebinService } from '../service/garbagebin.service';
 })
 export class AddbinPage implements OnInit {
 
-  constructor(private garbagebinService: GarbagebinService) { }
+  constructor(private garbagebinService: GarbagebinService, private navigationService: NavigationService) { }
 
   ngOnInit() {
   }
@@ -37,5 +38,11 @@ export class AddbinPage implements OnInit {
       'kindBin': kindOfBin
     }
     this.garbagebinService.addBin(bin);
+  }
+  saveBin() {
+
+  }
+  navigate(url: string) {
+    this.navigationService.navigate(url);
   }
 }

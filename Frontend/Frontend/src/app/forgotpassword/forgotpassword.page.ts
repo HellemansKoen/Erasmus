@@ -29,7 +29,7 @@ export class ForgotpasswordPage implements OnInit {
     if (this.isPasswordCorrect()) {
       const resetPasswordObj = {
         "email": this.email,
-        "password": this.incryptPassword(this.password)
+        "password": this.password
       }
       this.error = false;
       this.userService.resetPassword(resetPasswordObj).subscribe(() => console.log("password changed"));
@@ -48,8 +48,5 @@ export class ForgotpasswordPage implements OnInit {
   }
   navigation(url: string) {
     this.navigationService.navigate(url);
-  }
-  incryptPassword(password: string) {
-    return CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(password));
   }
 }

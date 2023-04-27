@@ -30,9 +30,11 @@ export class LoginPage implements OnInit {
   }
 
   login() {
-    for (let user = 0; user < this.listUsers.length; user++) {
+    this.userService.login(this.username, this.password);
+    
+    
+    /*for (let user = 0; user < this.listUsers.length; user++) {
       if (this.listUsers[user].username = this.username && this.listUsers[user].password == this.incryptPassword(this.password)) {
-       alert()
         console.log(this.listUsers[user].role);
         if (this.listUsers[user].role == "user") {
           this.navigationService.navigate("citymap")
@@ -43,10 +45,7 @@ export class LoginPage implements OnInit {
       else {
         this.loginError = true;
       }
-    }
-  }
-  incryptPassword(password: string) {
-    return CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(password));
+    }*/
   }
 
   navigate(url: string) {

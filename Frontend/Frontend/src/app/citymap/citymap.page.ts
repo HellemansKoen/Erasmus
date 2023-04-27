@@ -29,47 +29,28 @@ export class CitymapPage implements OnInit {
       for (let bin = 0; bin < bins.length; bin++) {
         this.AllBins.push(bins[bin]);
       }
-      
     })
     this.getAllBins()
   }
+  
+  getAllBins() {
+    console.log(this.AllBins);
+  }
+
+  navigate(location: string) {
+    this.navigationService.navigate(location);
+  }
+
+  /// Leafled try
   ionViewDidEnter() {
     this.leafletMap();
   }
 
-  /// Leafled try
   leafletMap() {
     this.map = Leaflet.map('mapId').setView([41.179014, -8.608021], 5);
     var OpenStreetMap_Mapnik = Leaflet.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19,
     });
     this.map.addLayer(OpenStreetMap_Mapnik);
-  }
-  getAllBins() {
-    console.log(this.AllBins);
-  }
-
-  addBin(lat: string, lng: string, kindBinString: string) {
-    var kindOfBin;
-    if (kindBinString == "plastic") {
-      kindOfBin = KindBin.PLASTIC;
-    } else if (kindBinString == "glas") {
-      kindOfBin = KindBin.GLAS;
-    } else if (kindBinString == "paper") {
-      kindOfBin = KindBin.PAPER;
-    } else {
-      kindOfBin = KindBin.RESIDUAL;
-    }
-    const bin = {
-      'binId': '',
-      'lat': lat,
-      'lng': lng,
-      'kindBin': kindOfBin
-    }
-    this.garbagebinService.addBin(bin).subscribe(() => console.log('bin added'));
-  }
-
-  navigate(location: string) {
-    this.navigationService.navigate(location);
   }
 }

@@ -26,13 +26,12 @@ export class RegisterPage implements OnInit {
 
   addUser() {
     alert(this.password)
-    const incryptedPassword = this.incryptPassword(this.password)
     const user = {
       'userId': '',
       'email': this.email,
       'username': this.username,
       'score': 0,
-      'password': incryptedPassword,
+      'password': this.password,
       'role': 'user'
     }
     this.userService.addUser(user).subscribe(() => {
@@ -42,8 +41,5 @@ export class RegisterPage implements OnInit {
   }
   navigate(location: string) {
     this.navigationService.navigate(location);
-  }
-  incryptPassword(password: string) {
-    return CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(password));
   }
 }
