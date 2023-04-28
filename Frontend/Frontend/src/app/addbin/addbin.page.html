@@ -1,7 +1,37 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Add garbagebin</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-accordion-group>
+        <ion-accordion>
+            <ion-text color="primary">
+                <h1>Add post</h1>
+            </ion-text>
+            <label class="toggle">
+                <input type="checkbox">
+                <span class="labels" data-on="LIVE LOCATION" data-off="OWN LOCATION"></span>
+            </label>
+            <br>
+            <div class="dropdown">
+                <button class="dropbtn">Dropdown</button>
+                <div class="dropdown-content">
+                    <a href="#">Option 1</a>
+                    <a href="#">Option 2</a>
+                    <a href="#">Option 3</a>
+                </div>
+            </div>
+        </ion-accordion>
+
+    </ion-accordion-group>
+
+</ion-content>
+
 <ion-content [fullscreen]="true">
     <ion-icon name="arrow-back-outline" (click)="navigate('citymap')"></ion-icon>
-    <ion-text color="primary">
-        <h1>Add post</h1>
-    </ion-text>
+
+
     <ion-button (click)="saveBin()">Add post</ion-button>
 </ion-content>

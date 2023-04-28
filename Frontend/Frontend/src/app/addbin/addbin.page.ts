@@ -5,6 +5,8 @@ import { IonicModule } from '@ionic/angular';
 import { KindBin } from '../models/KindBin';
 import { GarbagebinService } from '../service/garbagebin.service';
 import { NavigationService } from '../service/navigation.service';
+import { ModalController } from '@ionic/angular';
+// import { SimpleModalPage } from '../simple-modal/simple-modal.page';
 
 @Component({
   selector: 'app-addbin',
@@ -15,7 +17,7 @@ import { NavigationService } from '../service/navigation.service';
 })
 export class AddbinPage implements OnInit {
 
-  constructor(private garbagebinService: GarbagebinService, private navigationService: NavigationService) { }
+  constructor(private garbagebinService: GarbagebinService, private navigationService: NavigationService, private modalCtrl: ModalController) { }
 
   ngOnInit() {
   }
@@ -45,4 +47,13 @@ export class AddbinPage implements OnInit {
   navigate(url: string) {
     this.navigationService.navigate(url);
   }
+
+  async presentModal() {
+    /*const modal = await this.modalCtrl.create({
+      component: SimpleModalPage,
+      breakpoints: [0, 0.3, 0.5, 0.8],
+      initialBreakpoint: 0.5
+    });
+    await modal.present();*/
+}
 }
