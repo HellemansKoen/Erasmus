@@ -17,22 +17,21 @@ export class LoginPage implements OnInit {
 
   username = "";
   password = "";
-  listUsers: any[] = [];
   loginError = false;
   constructor(private userService: UserService, private navigationService: NavigationService) { }
 
-  ngOnInit(): void {
-    this.userService.getAllUsers().subscribe(users => {
-      for (let user = 0; user < users.length; user++) {
-        this.listUsers.push(users[user]);
-      }
-    })
-  }
+  ngOnInit(): void { }
 
   login() {
-    this.userService.login(this.username, this.password);
+    let token = this.userService.login(this.username, this.password);
+    console.log(token.subscribe());
     
-    
+     if(token){
+      console.log(123);
+      
+     }else{console.log(333);
+     }
+  
     /*for (let user = 0; user < this.listUsers.length; user++) {
       if (this.listUsers[user].username = this.username && this.listUsers[user].password == this.incryptPassword(this.password)) {
         console.log(this.listUsers[user].role);

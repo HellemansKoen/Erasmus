@@ -10,6 +10,7 @@ import java.util.List;
 
 @RequestMapping("/api/garbageBin")
 @RestController
+@CrossOrigin
 public class GarbageBinController {
 
     @Autowired

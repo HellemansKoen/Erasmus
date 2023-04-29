@@ -1,23 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { NavigationService } from '../service/navigation.service';
 import { ExploreContainerComponent } from "../explore-container/explore-container.component";
 import { GarbagebinService } from '../service/garbagebin.service';
-import { KindBin } from '../models/KindBin';
 import { GarbageBin } from '../models/GarbageBin';
 import * as Leaflet from 'leaflet';
-import { log } from 'console';
 
 @Component({
   selector: 'app-citymap',
   templateUrl: './citymap.page.html',
   styleUrls: ['./citymap.page.scss'],
   standalone: true,
-  imports: [IonicModule, CommonModule, FormsModule, ExploreContainerComponent]
+  imports: [IonicModule, CommonModule, FormsModule, ExploreContainerComponent],
 })
 export class CitymapPage implements OnInit {
+  @Input('app-header') inData: any;
 
   constructor(private navigationService: NavigationService, private garbagebinService: GarbagebinService) { }
 

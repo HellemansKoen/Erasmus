@@ -1,6 +1,7 @@
 package main.security;
 
 public class Credentials {
+
     private String username;
     private String password;
 
@@ -24,4 +25,6 @@ public class Credentials {
     public void setPassword(String password) {
         this.password = password;
     }
+
+
 }

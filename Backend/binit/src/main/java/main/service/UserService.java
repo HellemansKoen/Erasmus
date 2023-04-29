@@ -27,7 +27,7 @@ public class UserService {
     public int addUser(User user) {
         System.out.println(123);
         try {
-            user.setPassword(cPasswordEncoder.encode(user.getPassword()));
+           // user.setPassword(cPasswordEncoder.encode(user.getPassword()));
             userRepository.save(user);
             return 1;
         } catch
@@ -89,10 +89,10 @@ public class UserService {
         return userRepository.findUserByUsername(username);
     }
 
-    public User getCurrentUser(String token) {
+   /* public User getCurrentUser(String token) {
         final User finalAuthUser = jwtUtils.getUserFromToken(token);
 
         if (finalAuthUser == null) return null;
         else return finalAuthUser;
-    }
+    }*/
 }

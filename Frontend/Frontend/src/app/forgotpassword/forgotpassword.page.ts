@@ -33,7 +33,7 @@ export class ForgotpasswordPage implements OnInit {
       }
       this.error = false;
       this.userService.resetPassword(resetPasswordObj).subscribe(() => console.log("password changed"));
-      this.navigation("login")
+      this.navigate("login")
     } else {
       this.error = true
     }
@@ -46,7 +46,7 @@ export class ForgotpasswordPage implements OnInit {
       return false;
     }
   }
-  navigation(url: string) {
+  navigate(url: string) {
     this.navigationService.navigate(url);
   }
 }

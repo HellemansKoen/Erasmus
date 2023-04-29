@@ -3,6 +3,7 @@ package main.security;
 import main.model.User;
 
 public class JWTResponse {
+
 private User user;
 private String JWTToken;
 

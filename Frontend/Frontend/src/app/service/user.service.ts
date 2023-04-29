@@ -11,12 +11,10 @@ export class UserService {
   constructor(private http: HttpClient) { }
   
   addUser(user: User) {
-    console.log(user);
-    console.log("222");
     return this.http.post('http://localhost:8080/api/user/addUser', user);
   }
 
-  // OK
+// OK
   resetPassword(resetPasswordObj: any) {
     return this.http.put('http://localhost:8080/api/user/resetPassword', resetPasswordObj);
   }
@@ -26,7 +24,7 @@ export class UserService {
   }
 
   // NOK
-  login(username: string, password: string): Observable<any> {
-    return this.http.get<any>(`http://localhost:8080/api/user/authenticate`);
+  login(username: string, password: string): Observable<any> {   
+    return this.http.get<any>(`http://localhost:8080/api/auth/authenticate?username=${username}&password=${password}`);
   }
 }

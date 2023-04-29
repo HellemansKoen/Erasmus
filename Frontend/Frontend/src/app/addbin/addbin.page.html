@@ -1,37 +1,32 @@
 <ion-header>
-    <ion-toolbar>
-        <ion-title>Add garbagebin</ion-title>
+    <ion-toolbar style="background: var(--primary);">
+        <ion-icon name="arrow-back-outline" (click)="navigate('citymap')" id="arrowBack"></ion-icon>
+        <ion-img src="../../assets/icon/logo.png" style="width: 80px; margin: auto;"></ion-img>
     </ion-toolbar>
 </ion-header>
-
-<ion-content>
-    <ion-accordion-group>
-        <ion-accordion>
-            <ion-text color="primary">
-                <h1>Add post</h1>
-            </ion-text>
-            <label class="toggle">
-                <input type="checkbox">
-                <span class="labels" data-on="LIVE LOCATION" data-off="OWN LOCATION"></span>
-            </label>
-            <br>
-            <div class="dropdown">
-                <button class="dropbtn">Dropdown</button>
-                <div class="dropdown-content">
-                    <a href="#">Option 1</a>
-                    <a href="#">Option 2</a>
-                    <a href="#">Option 3</a>
-                </div>
-            </div>
-        </ion-accordion>
-
-    </ion-accordion-group>
-
-</ion-content>
-
 <ion-content [fullscreen]="true">
-    <ion-icon name="arrow-back-outline" (click)="navigate('citymap')"></ion-icon>
-
-
+    <br>
+    <div id="toggle">
+        <label class="toggle">
+        <input type="checkbox" id="kindLoc">
+        <span class="labels" data-on="LIVE LOCATION" data-off="CHOOSE OWN LOCATION" (click)="changeLocation($event)"></span>
+    </label>
+    </div>
+    <div id="map" style="display: none">
+        Show a map
+    </div>
+    <div class="kindBin">
+        <ion-list style="width: 50%">
+            <ion-item>
+                <ion-select aria-label="Fruit" placeholder="Select the kind of bin" [multiple]="false">
+                    <ion-select-option value="Plastic">Plastic</ion-select-option>
+                    <ion-select-option value="paper">Paper</ion-select-option>
+                    <ion-select-option value="glas">Glas</ion-select-option>
+                    <ion-select-option value="residual">Residual</ion-select-option>
+                </ion-select>
+            </ion-item>
+        </ion-list>
+    </div>
+    <br>
     <ion-button (click)="saveBin()">Add post</ion-button>
 </ion-content>

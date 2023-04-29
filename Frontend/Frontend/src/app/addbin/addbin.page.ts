@@ -21,6 +21,9 @@ export class AddbinPage implements OnInit {
 
   ngOnInit() {
   }
+  changeLocation(event: any) {
+
+  }
 
   addBin(lat: string, lng: string, kindBinString: string) {
     var kindOfBin;
@@ -55,5 +58,5 @@ export class AddbinPage implements OnInit {
       initialBreakpoint: 0.5
     });
     await modal.present();*/
-}
+  }
 }

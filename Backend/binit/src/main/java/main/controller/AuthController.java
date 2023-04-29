@@ -12,28 +12,21 @@ import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/api/auth")
+@CrossOrigin
 public class AuthController {
     @Autowired
     public AuthService authService;
+
     @Autowired
     public UserService userService;
 
     @PostMapping("/authenticate")
-    public JWTResponse signin(@RequestBody Credentials credentials) {
+    public JWTResponse signin(@RequestParam String username, @RequestParam String password) {
+        Credentials credentials = new Credentials(username,password);
         try {
             return authService.createToken(credentials);
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
-        }
-    }
-    @RequestMapping("/authenticate")
-    public User getCurrentUser(@RequestHeader("Authorization") String token) {
-        try {
-            final User user = userService.getCurrentUser(token.split(" ")[1]);
-            user.setPassword(null);
-            return user;
-        } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage());
         }
     }
 }

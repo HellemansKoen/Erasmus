@@ -5,11 +5,11 @@ import main.model.User;
 import main.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/user")
+@CrossOrigin
 public class UserController {
 
     @Autowired
@@ -25,8 +25,8 @@ public class UserController {
     // OK
     @GetMapping("/getAllUsers")
     public List<User> getAllUsers() {
-        List<User> allUsers = userService.findAllUsers();
-        return allUsers;
+        System.out.println("222");
+        return userService.findAllUsers();
     }
 
     @GetMapping("/getUserById")

@@ -1,5 +1,6 @@
 package main.utils;
 
+
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -16,6 +17,7 @@ import java.util.function.Function;
 
 @Component
 public class JWTUtils {
+
     private static final String SECRET_KEY = "testkey";
     private static final int TOKEN_VALIDITY = 3600;
 
@@ -25,8 +27,8 @@ public class JWTUtils {
     public User getUserFromToken(String token) {
         User authUser = null;
         try {
-            String authUsername = getUserNameFromToken(token);
-            authUser = userRepository.findUserByUsername(authUsername);
+            String authEmail = getUserNameFromToken(token);
+            authUser = userRepository.findUserByUsername(authEmail);
         } catch (Exception e) {
             throw new IllegalArgumentException(e.getMessage());
         }
@@ -40,6 +42,12 @@ public class JWTUtils {
     public boolean validateToken(String token, UserDetails userDetails) {
         String username = getUserNameFromToken(token);
         return username.equals(userDetails.getUsername()) && !isTokenExpired(token);
+    }
+
+    public boolean validateToken(String token) {
+        // TODO: dit is niet super veilig :)
+        String username = getUserNameFromToken(token);
+        return username != null && !isTokenExpired(token);
     }
 
     private boolean isTokenExpired(String token) {
@@ -58,6 +66,7 @@ public class JWTUtils {
 
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();
+
         return Jwts.builder().setClaims(claims)
                 .setSubject(userDetails.getUsername())
                 .setIssuedAt(new Date(System.currentTimeMillis()))
