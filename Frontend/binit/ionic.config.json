@@ -1,7 +1,0 @@
-{
-  "name": "binit",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "angular"
-}
