@@ -23,28 +23,19 @@ export class LoginPage implements OnInit {
   ngOnInit(): void { }
 
   login() {
-    let token = this.userService.login(this.username, this.password);
-    console.log(token.subscribe());
-    
-     if(token){
-      console.log(123);
-      
-     }else{console.log(333);
-     }
-  
-    /*for (let user = 0; user < this.listUsers.length; user++) {
-      if (this.listUsers[user].username = this.username && this.listUsers[user].password == this.incryptPassword(this.password)) {
-        console.log(this.listUsers[user].role);
-        if (this.listUsers[user].role == "user") {
-          this.navigationService.navigate("citymap")
-        } else if (this.listUsers[user].role == "admin") {
-          this.navigationService.navigate("menu")
-        }
+    let token = ""
+    if(this.username != null && this.password != null){
+
+    }
+    this.userService.login(this.username, this.password).subscribe(response => {
+      token = response
+      console.log(token);
+      if (token) {
+        console.log(123);
+      } else {
+        console.log(333);
       }
-      else {
-        this.loginError = true;
-      }
-    }*/
+    });
   }
 
   navigate(url: string) {

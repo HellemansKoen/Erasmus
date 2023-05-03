@@ -5,7 +5,6 @@ import main.security.Credentials;
 import main.security.JWTResponse;
 import main.utils.JWTUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.DisabledException;
 import org.springframework.security.core.GrantedAuthority;
@@ -26,7 +25,6 @@ public class AuthService implements UserDetailsService {
     @Autowired
     private JWTUtils jwtUtil;
 
-
     //@Autowired
    // private AuthenticationManager authenticationManager;
 
@@ -37,13 +35,10 @@ public class AuthService implements UserDetailsService {
         String username = credentials.getUsername();
         String password = credentials.getPassword();
         authenticate(username, password);
-
         final UserDetails userDetails = loadUserByUsername(username);
         final String token = jwtUtil.generateToken(userDetails);
-
         User user = userService.findUserByUsername(username);
         user.setPassword(null);
-
         return new JWTResponse(user, token);
     }
 

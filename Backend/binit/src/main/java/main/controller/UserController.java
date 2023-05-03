@@ -15,19 +15,17 @@ public class UserController {
     @Autowired
     UserService userService;
 
-    // NOK
+    // OK
     @PostMapping("/addUser")
     public void addUser(@RequestBody User user) {
-        System.out.println("222");
         userService.addUser(user);
     }
-
+/*
     // OK
     @GetMapping("/getAllUsers")
     public List<User> getAllUsers() {
-        System.out.println("222");
         return userService.findAllUsers();
-    }
+    }*/
 
     @GetMapping("/getUserById")
     public User getUserById(long userId) {
@@ -54,7 +52,4 @@ public class UserController {
             return 0;
         }
     }
-
-
-
 }

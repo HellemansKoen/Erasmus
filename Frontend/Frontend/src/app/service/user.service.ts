@@ -10,6 +10,8 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
   
+  token: string ="";
+  
   addUser(user: User) {
     return this.http.post('http://localhost:8080/api/user/addUser', user);
   }

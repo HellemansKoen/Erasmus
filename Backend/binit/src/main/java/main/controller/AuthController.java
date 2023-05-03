@@ -1,6 +1,5 @@
 package main.controller;
 
-import main.model.User;
 import main.security.Credentials;
 import main.security.JWTResponse;
 import main.service.AuthService;
@@ -20,7 +19,7 @@ public class AuthController {
     @Autowired
     public UserService userService;
 
-    @PostMapping("/authenticate")
+    @GetMapping("/authenticate")
     public JWTResponse signin(@RequestParam String username, @RequestParam String password) {
         Credentials credentials = new Credentials(username,password);
         try {
