@@ -2,6 +2,7 @@ package main.controller;
 
 import main.model.ResetPasswordObject;
 import main.model.User;
+import main.security.CPasswordEncoder;
 import main.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,17 +16,20 @@ public class UserController {
     @Autowired
     UserService userService;
 
+    @Autowired
+    CPasswordEncoder cPasswordEncoder;
     // OK
     @PostMapping("/addUser")
     public void addUser(@RequestBody User user) {
+        user.setPassword(cPasswordEncoder.encode(user.getPassword()));
         userService.addUser(user);
     }
-/*
+
     // OK
     @GetMapping("/getAllUsers")
     public List<User> getAllUsers() {
         return userService.findAllUsers();
-    }*/
+    }
 
     @GetMapping("/getUserById")
     public User getUserById(long userId) {

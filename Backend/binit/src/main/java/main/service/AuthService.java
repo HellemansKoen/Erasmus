@@ -25,9 +25,6 @@ public class AuthService implements UserDetailsService {
     @Autowired
     private JWTUtils jwtUtil;
 
-    //@Autowired
-   // private AuthenticationManager authenticationManager;
-
     public AuthService() {
     }
 
@@ -56,10 +53,6 @@ public class AuthService implements UserDetailsService {
     private Set<GrantedAuthority> getAuthorities(User user) {
         Set<GrantedAuthority> authorities = new HashSet<>();
         authorities.add(new SimpleGrantedAuthority("User"));
-
-       /* user.getRoles().forEach(role -> {
-            authorities.add(new SimpleGrantedAuthority(role.getName()));
-        });*/
 
         return authorities;
     }

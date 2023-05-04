@@ -17,15 +17,11 @@ public class UserService {
     @Autowired
     private JWTUtils jwtUtils;
 
-    @Autowired
-    private CPasswordEncoder cPasswordEncoder;
-
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
     public int addUser(User user) {
-        System.out.println(123);
         try {
            // user.setPassword(cPasswordEncoder.encode(user.getPassword()));
             userRepository.save(user);
