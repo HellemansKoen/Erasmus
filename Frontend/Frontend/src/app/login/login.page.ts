@@ -24,21 +24,15 @@ export class LoginPage implements OnInit {
   ngOnInit(): void { }
 
   login() {
-    let token = ""
     if (this.username != "" && this.password != "") {
       this.userService.login(this.username, this.password).subscribe(response => {
-        token = response
-      });
-      localStorage.setItem('GBtoken', token);
-      let role ="";
-      /*this.userService.getCurrentUser(token).subscribe(response => {
-        role = response;  
-        if(role == "user"){
+        localStorage.setItem('GBtoken', response.jwttoken);
+        if (response.user.role == "user") {
           this.navigate("citymap")
-        } else if(role == "admin"){
+        } else if (response.user.role == "admin") {
           this.navigate("menu")
         }
-      })*/
+      });
       this.loginError = false
     } else {
       this.loginError = true
