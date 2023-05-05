@@ -1,42 +1,19 @@
-ion-input {
-    width: 20%;
-}
-
-.divbuttons {
-    margin-left: 40%;
-}
-
-.inputLogin {
-    margin: auto;
-    width: 600px;
-}
-
-#forgotpassword,
-#forgotpassword:hover {
-    margin-top: 100px;
-    cursor: pointer;
-    margin-left: 45%;
-}
-
-#loginError {
-    color: red;
-}
-
 .logo {
-    width: 50%;
-    margin: auto;
-    padding-bottom: 50px;
+  width: 40%;
+  max-width: 420px;
+  margin: auto;
+  padding-top: 64px;
 }
 
-#inloginformation {
-    margin: 10%;
-    padding: 20px;
+.wrapper {
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
 }
 
-#register {
-    background-color: red;
-}
-
-ion-button {
-    margin-left: 20px;
+.link {
+  cursor: pointer;
+  &:hover {
+    color: blue;
+  }
 }
