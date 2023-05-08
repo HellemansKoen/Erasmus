@@ -27,7 +27,7 @@ export class LoginPage implements OnInit {
     if (this.username != "" && this.password != "") {
       try {
         this.userService.login(this.username, this.password).subscribe(response => {
-          localStorage.setItem('GBtoken', response.jwttoken);
+          localStorage.setItem('jwtToken', response.jwttoken);
           if (response.jwttoken != null) {
             if (response.user.role == "user") {
               this.navigate("citymap")

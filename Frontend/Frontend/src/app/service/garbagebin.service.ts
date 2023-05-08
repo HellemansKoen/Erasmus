@@ -21,6 +21,7 @@ export class GarbagebinService {
 
   // OK
   addBin(bin: GarbageBin) {
+    console.log(bin);
     return this.http.post('http://localhost:8080/api/garbageBin/addBin', bin);
   }
 }

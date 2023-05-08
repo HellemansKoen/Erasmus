@@ -21,6 +21,7 @@ export class ProfilePage implements OnInit {
   }
 
   navigate(location: string) {
+    localStorage.setItem('jwtToken',"");
     this.navigationService.navigate(location);
   }
 

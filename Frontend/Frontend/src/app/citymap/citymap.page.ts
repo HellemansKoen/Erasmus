@@ -24,23 +24,56 @@ export class CitymapPage implements OnInit {
   map: Leaflet.Map | undefined
 
   ngOnInit() {
-    /*  this.garbagebinService.getAllBins().subscribe(bins => {
-       for (let bin = 0; bin < bins.length; bin++) {
-         this.AllBins.push(bins[bin]);
-       }
-     })
-     this.getAllBins()*/
+   /* this.garbagebinService.getAllBins().subscribe(bins => {
+      for (let bin = 0; bin < bins.length; bin++) {
+        this.AllBins.push(bins[bin]);
+      }
+    })*/
   }
-  ionViewDidEnter() { this.leafletMap(); }
+  ionViewDidEnter() {
+    this.leafletMap();
+  }
 
   leafletMap(): void {
-    this.map = Leaflet.map('mapId').setView([28.644800, 77.216721], 5);
-    Leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    }).addTo(this.map);
+    this.map?.remove();
+    this.map =
+      Leaflet.map('mapId', {
+        minZoom: 15, maxZoom: 17,
+      }).setView([41.178183, -8.606718], 20);
+    /*Leaflet.control.locate({
+      position: 'bottomleft'
+    }).addTo(this.map);*/
+    Leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(this.map);
+    this.map.locate({ setView: false, watch: false })
+      .on('locationfound', (e) => {
+        var latlng = Leaflet.latLng(e.latlng.lat, e.latlng.lng);
+        var myIcon = Leaflet.icon({
+          iconUrl: '../../assets/images/currentLoc.png',
+          iconSize: [40, 40]
+        });
+        if (this.map != null) {
+          Leaflet.marker([e.latlng.lat, e.latlng.lng], { icon: myIcon }).addTo(this.map);
+          localStorage.setItem('lat', e.latlng.lat.toString());
+          localStorage.setItem('lng', e.latlng.lng.toString());
+        }
+        this.map?.setView(latlng, 17);
+        console.log(e.accuracy)
+      })
+      .on('locationerror', (e) => {
+        console.log(e);
+        alert("Location access denied")
+      })
+  //  this.placeAllMarkers();
   }
-  
-
+  placeAllMarkers() {
+    for (let index = 0; index < this.AllBins.length; index++) {
+      if (this.map) {
+        Leaflet.marker([Number(this.AllBins[index].lat), Number(this.AllBins[index].lng)]).addTo(this.map);
+      }
+    }
+  }
   navigate(location: string) {
     this.navigationService.navigate(location);
   }
+
 }
