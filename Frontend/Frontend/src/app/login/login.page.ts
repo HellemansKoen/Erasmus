@@ -25,17 +25,21 @@ export class LoginPage implements OnInit {
 
   login() {
     if (this.username != "" && this.password != "") {
-      this.userService.login(this.username, this.password).subscribe(response => {
-        localStorage.setItem('GBtoken', response.jwttoken);
-        if (response.user.role == "user") {
-          this.navigate("citymap")
-        } else if (response.user.role == "admin") {
-          this.navigate("menu")
-        }
-      });
-      this.loginError = false
-    } else {
-      this.loginError = true
+      try {
+        this.userService.login(this.username, this.password).subscribe(response => {
+          localStorage.setItem('GBtoken', response.jwttoken);
+          if (response.jwttoken != null) {
+            if (response.user.role == "user") {
+              this.navigate("citymap")
+            } else if (response.user.role == "admin") {
+              this.navigate("menu")
+            }
+          }
+          this.loginError = false
+        });
+      } catch (e: unknown) {
+        this.loginError = true
+      }
     }
   }
 

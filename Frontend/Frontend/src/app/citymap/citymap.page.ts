@@ -23,33 +23,24 @@ export class CitymapPage implements OnInit {
   AllBins: GarbageBin[] = []
   map: Leaflet.Map | undefined
 
-  ngOnInit(): void {
-    this.garbagebinService.getAllBins().subscribe(bins => {
-      for (let bin = 0; bin < bins.length; bin++) {
-        this.AllBins.push(bins[bin]);
-      }
-    })
-    this.getAllBins()
+  ngOnInit() {
+    /*  this.garbagebinService.getAllBins().subscribe(bins => {
+       for (let bin = 0; bin < bins.length; bin++) {
+         this.AllBins.push(bins[bin]);
+       }
+     })
+     this.getAllBins()*/
+  }
+  ionViewDidEnter() { this.leafletMap(); }
+
+  leafletMap(): void {
+    this.map = Leaflet.map('mapId').setView([28.644800, 77.216721], 5);
+    Leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    }).addTo(this.map);
   }
   
-  getAllBins() {
-    console.log(this.AllBins);
-  }
 
   navigate(location: string) {
     this.navigationService.navigate(location);
-  }
-
-  /// Leafled try
-  ionViewDidEnter() {
-    this.leafletMap();
-  }
-
-  leafletMap() {
-    this.map = Leaflet.map('mapId').setView([41.179014, -8.608021], 5);
-    var OpenStreetMap_Mapnik = Leaflet.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 19,
-    });
-    this.map.addLayer(OpenStreetMap_Mapnik);
   }
 }
