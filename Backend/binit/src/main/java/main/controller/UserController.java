@@ -18,10 +18,10 @@ public class UserController {
 
     @Autowired
     CPasswordEncoder cPasswordEncoder;
+
     // OK
     @PostMapping("/addUser")
     public void addUser(@RequestBody User user) {
-        user.setPassword(cPasswordEncoder.encode(user.getPassword()));
         userService.addUser(user);
     }
 
@@ -50,6 +50,7 @@ public class UserController {
     // OK
     @PutMapping("/resetPassword")
     public int resetPassword(@RequestBody ResetPasswordObject obj) {
+
         if (userService.resetPassword(obj.getEmail(), obj.getPassword()) == 1) {
             return 1;
         } else {

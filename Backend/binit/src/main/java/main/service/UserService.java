@@ -6,6 +6,7 @@ import main.security.CPasswordEncoder;
 import main.utils.JWTUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service
@@ -17,13 +18,16 @@ public class UserService {
     @Autowired
     private JWTUtils jwtUtils;
 
+    @Autowired
+    private CPasswordEncoder cPasswordEncoder;
+
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
     public int addUser(User user) {
         try {
-           // user.setPassword(cPasswordEncoder.encode(user.getPassword()));
+            user.setPassword(cPasswordEncoder.encode(user.getPassword()));
             userRepository.save(user);
             return 1;
         } catch
@@ -73,7 +77,7 @@ public class UserService {
     public int resetPassword(String email, String newPassword) {
         try {
             User user = userRepository.findUserByEmail(email);
-            user.setPassword(newPassword);
+            user.setPassword(cPasswordEncoder.encode(newPassword));
             userRepository.save(user);
             return 1;
         } catch (Exception e) {
@@ -85,10 +89,12 @@ public class UserService {
         return userRepository.findUserByUsername(username);
     }
 
-   /* public User getCurrentUser(String token) {
+    public User getCurrentUser(String token) {
         final User finalAuthUser = jwtUtils.getUserFromToken(token);
-
-        if (finalAuthUser == null) return null;
-        else return finalAuthUser;
-    }*/
+        if (finalAuthUser == null) {
+            return null;
+        } else {
+            return finalAuthUser;
+        }
+    }
 }

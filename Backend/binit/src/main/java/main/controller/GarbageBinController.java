@@ -21,6 +21,7 @@ public class GarbageBinController {
 
     @PostMapping("/addBin")
     public int addBin(@RequestBody GarbageBin garbageBin /*,long userId*/) {
+        System.out.println(555);
         if (garbageBinService.addGarbageBin(garbageBin) == 1) {
             // User user = userService.findUserById(userId);
             // userService.addScore(10, user);
@@ -32,6 +33,7 @@ public class GarbageBinController {
 
     @GetMapping("/getAllBins")
     public List<GarbageBin> getAllBins() {
+        System.out.println("159");
         return garbageBinService.getAllGarbageBins();
     }
 

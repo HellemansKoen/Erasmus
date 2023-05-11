@@ -23,27 +23,24 @@ export class AddbinPage implements OnInit {
 
   ngOnInit() { }
   addBin() {
-    let lat = localStorage.getItem('lat');
-    let lng = localStorage.getItem('lng');
+    let lat = this.garbagebinService.lat;
+    let lng = this.garbagebinService.lng;
+   // let lat = localStorage.getItem('lat');
+   // let lng = localStorage.getItem('lng');
     if (lat != null && lng != null) {
       const bin = {
         'binId': '',
-        'lat': lat?.toString(),
-        'lng': lng?.toString(),
+        'lat': lat,
+        'lng': lng,
         'kindBin': this.kindBin
       }
-      let result = this.garbagebinService.addBin(bin);
-      /*
-      if(result = 1 ){
-        navigate("citymap")
-      }
-      */
+      let result = this.garbagebinService.addBin(bin).subscribe();
+      console.log(result);
+      this.navigate("citymap")
     }
   }
 
   navigate(url: string) {
     this.navigationService.navigate(url);
   }
-
-
 }

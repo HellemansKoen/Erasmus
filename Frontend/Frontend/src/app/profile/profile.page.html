@@ -1,10 +1,10 @@
 <ion-header>
     <ion-toolbar style="background: var(--primary);">
         <ion-img src="../../assets/icon/logo.png"></ion-img>
-        <ion-icon name="log-out-outline" (click)="navigate('login')" id="logout"></ion-icon>
+        <ion-icon name="log-out-outline" (click)="logout()" id="logout"></ion-icon>
     </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
-    <h2>Leaderboard</h2>
+    <h2 (click)="navigate('leaderboard')">Leaderboard</h2>
     <app-explore-container name="Tab 3 page"></app-explore-container>
 </ion-content>
