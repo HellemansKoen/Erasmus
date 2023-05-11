@@ -4,8 +4,10 @@ import main.model.GarbageBin;
 import main.model.User;
 import main.service.GarbageBinService;
 import main.service.UserService;
+import main.utils.JWTUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RequestMapping("/api/garbageBin")
@@ -19,12 +21,17 @@ public class GarbageBinController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private JWTUtils jwtUtils;
+
     @PostMapping("/addBin")
-    public int addBin(@RequestBody GarbageBin garbageBin /*,long userId*/) {
+    public int addBin(@RequestBody GarbageBin garbageBin, @RequestParam String token) {
         System.out.println(555);
         if (garbageBinService.addGarbageBin(garbageBin) == 1) {
-            // User user = userService.findUserById(userId);
-            // userService.addScore(10, user);
+            User user = jwtUtils.getUserFromToken(token);
+            System.out.println(user);
+            userService.addScore(10, user);
+            System.out.println("Ikke");
             return 1;
         } else {
             return 0;

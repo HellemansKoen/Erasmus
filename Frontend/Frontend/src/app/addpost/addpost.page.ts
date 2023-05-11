@@ -16,7 +16,8 @@ export class AddpostPage implements OnInit {
   title: string = "";
   content: string = "";
   city: string = "";
-  blobURL: string = ""
+  blobURL: string = "";
+
   constructor(private postService: PostService) { }
 
   ngOnInit() { }

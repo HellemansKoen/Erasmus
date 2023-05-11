@@ -5,7 +5,6 @@ import { IonicModule } from '@ionic/angular';
 import { NavigationService } from '../service/navigation.service';
 import { ExploreContainerComponent } from "../explore-container/explore-container.component";
 import { GarbagebinService } from '../service/garbagebin.service';
-import { GarbageBin } from '../models/GarbageBin';
 import * as Leaflet from 'leaflet';
 
 @Component({
@@ -20,7 +19,7 @@ export class CitymapPage implements OnInit {
 
   constructor(private navigationService: NavigationService, private garbagebinService: GarbagebinService) { }
 
-  AllBins: GarbageBin[] = []
+  AllBins: any[] = []
   map: Leaflet.Map | undefined
 
   locate() {
@@ -34,6 +33,7 @@ export class CitymapPage implements OnInit {
       }
     })
   }
+  
   ionViewDidEnter() {
     this.leafletMap();
   }

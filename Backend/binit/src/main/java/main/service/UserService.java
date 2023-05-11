@@ -47,6 +47,8 @@ public class UserService {
     public int addScore(int score, User user) {
         try {
             user.setScore(user.getScore() + score);
+            System.out.println(user.getScore());
+            System.out.println("Score: " + user.getScore() + score);
             userRepository.save(user);
             return 1;
         } catch (Exception e) {
