@@ -3,10 +3,10 @@ package main.service;
 import main.model.User;
 import main.repository.UserRepository;
 import main.security.CPasswordEncoder;
-import main.utils.JWTUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -14,9 +14,6 @@ public class UserService {
 
     @Autowired
     private UserRepository userRepository;
-
-    @Autowired
-    private JWTUtils jwtUtils;
 
     @Autowired
     private CPasswordEncoder cPasswordEncoder;
@@ -42,6 +39,15 @@ public class UserService {
 
     public List<User> findAllUsers() {
         return userRepository.findAll();
+    }
+
+    public List<User> SortAllUsers() {
+        List<User> listUsers = findAllUsers();
+        Collections.sort(listUsers);
+        for (int i = 0; i < listUsers.size(); i++) {
+            System.out.println(listUsers.get(i));
+        }
+        return listUsers;
     }
 
     public int addScore(int score, User user) {
@@ -89,14 +95,5 @@ public class UserService {
 
     public User findUserByUsername(String username) {
         return userRepository.findUserByUsername(username);
-    }
-
-    public User getCurrentUser(String token) {
-        final User finalAuthUser = jwtUtils.getUserFromToken(token);
-        if (finalAuthUser == null) {
-            return null;
-        } else {
-            return finalAuthUser;
-        }
     }
 }

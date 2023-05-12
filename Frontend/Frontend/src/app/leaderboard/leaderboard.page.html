@@ -1,13 +1,15 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>leaderboard</ion-title>
-  </ion-toolbar>
-</ion-header>
-
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">leaderboard</ion-title>
-    </ion-toolbar>
-  </ion-header>
+    <ion-text color="primary">
+        <h1>Leaderboard</h1>
+    </ion-text>
+    <table>
+        <tr>
+            <th>username</th>
+            <th>score</th>
+        </tr>
+        <tr *ngFor="let user of listUsers">
+            <td>{{user.username}}</td>
+            <td>{{user.score}}</td>
+        </tr>
+    </table>
 </ion-content>

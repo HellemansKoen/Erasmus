@@ -22,13 +22,11 @@ export class AddbinPage implements OnInit {
   ngOnInit() { }
 
   addBin() {
-    let lat = this.garbagebinService.lat;
-    let lng = this.garbagebinService.lng;
-    if (lat != null && lng != null) {
+    if (this.garbagebinService.lat != null && this.garbagebinService.lng != null) {
       const bin = {
         'binId': '',
-        'lat': lat,
-        'lng': lng,
+        'lat': this.garbagebinService.lat,
+        'lng': this.garbagebinService.lng,
         'kindBin': this.kindBin
       }
       let token = localStorage.getItem("jwtToken");

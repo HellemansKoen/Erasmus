@@ -1,10 +1,11 @@
 package main.model;
 
 import jakarta.persistence.*;
+import org.jetbrains.annotations.NotNull;
 
 @Entity
 @Table(name = "user")
-public class User {
+public class User implements Comparable<User>{
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -104,4 +105,14 @@ public class User {
                 ", username='" + username + '\'' +
                 '}';
     }
+
+    @Override
+    public int compareTo(@NotNull User user) {
+        if(this.getScore() > user.getScore()) {
+            return -1;
+        } else if (this.getScore() < user.getScore()) {
+            return 1;
+        } else {
+            return 0;
+        }    }
 }

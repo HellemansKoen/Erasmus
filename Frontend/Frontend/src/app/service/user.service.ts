@@ -25,6 +25,10 @@ export class UserService {
     return this.http.get<any[]>('http://localhost:8080/api/user/getAllUsers');
   }
 
+  getAllUsersSorted(): Observable<any[]> {
+    return this.http.get<any[]>('http://localhost:8080/api/user/getAllUsersSorted');
+  }
+
   // NOK
   login(username: string, password: string): Observable<any> {   
     return this.http.get<any>(`http://localhost:8080/api/auth/authenticate?username=${username}&password=${password}`);

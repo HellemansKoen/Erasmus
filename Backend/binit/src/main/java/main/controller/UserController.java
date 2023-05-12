@@ -31,6 +31,12 @@ public class UserController {
         return userService.findAllUsers();
     }
 
+    @GetMapping("/getAllUsersSorted")
+    public List<User> getAllUsersSorted() {
+
+        return userService.SortAllUsers();
+    }
+
     @GetMapping("/getUserById")
     public User getUserById(long userId) {
         User user = userService.findUserById(userId);
