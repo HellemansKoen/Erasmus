@@ -1,0 +1,15 @@
+<ion-content [fullscreen]="true">
+    <ion-text color="primary">
+        <h1>Leaderboard</h1>
+    </ion-text>
+    <table>
+        <tr>
+            <th>username</th>
+            <th>score</th>
+        </tr>
+        <tr *ngFor="let user of listUsers">
+            <td>{{user.username}}</td>
+            <td>{{user.score}}</td>
+        </tr>
+    </table>
+</ion-content>

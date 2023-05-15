@@ -36,5 +36,9 @@ export const routes: Routes = [
   {
     path: 'forgotpassword',
     loadComponent: () => import('./forgotpassword/forgotpassword.page').then( m => m.ForgotpasswordPage)
+  },
+  {
+    path: 'leaderboard',
+    loadComponent: () => import('./leaderboard/leaderboard.page').then( m => m.LeaderboardPage)
   }
 ];

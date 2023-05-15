@@ -19,7 +19,6 @@ public class GarbageBinService {
     }
 
     public List<GarbageBin> getAllGarbageBins() {
-
         return garbageBinRepository.findAll();
     }
 

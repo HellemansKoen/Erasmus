@@ -5,7 +5,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { AppComponent } from './app.component';
 import { routes } from './app.routes';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { Intercepter } from './intercepter/intercepter';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,7 +17,10 @@ import { HttpClientModule } from '@angular/common/http';
     IonicModule.forRoot(),
     RouterModule.forRoot(routes)
     ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+  {
+    provide: HTTP_INTERCEPTORS, useClass: Intercepter, multi: true
+  }],
   bootstrap: [AppComponent],
 })
 

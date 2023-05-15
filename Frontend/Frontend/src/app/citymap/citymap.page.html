@@ -1,6 +1,10 @@
 <ion-content [fullscreen]="true">
-    <div id="mapId" style="width: 500px; height: 500px"></div>
+    <div id="mapId" style="width: 100%; height: 100%">
+    </div>
+    <ion-button (click)="locate()" id="locate">
+        <ion-icon name="navigate-outline"></ion-icon>
+    </ion-button>
     <ion-button (click)="navigate('addbin')" id="btnAdd">
-        <ion-icon name="trash-outline"></ion-icon> Add bin
+        <ion-icon name="trash-outline"></ion-icon>
     </ion-button>
 </ion-content>

@@ -18,28 +18,33 @@ export class LoginPage implements OnInit {
   username = "";
   password = "";
   loginError = false;
+
   constructor(private userService: UserService, private navigationService: NavigationService) { }
 
   ngOnInit(): void { }
 
   login() {
-    let token = ""
-    if(this.username != null && this.password != null){
-
-    }
-    this.userService.login(this.username, this.password).subscribe(response => {
-      token = response
-      console.log(token);
-      if (token) {
-        console.log(123);
-      } else {
-        console.log(333);
+    if (this.username != "" && this.password != "") {
+      try {
+        this.userService.login(this.username, this.password).subscribe(response => {
+          console.log(response);
+          localStorage.setItem('jwtToken', response.jwttoken);
+          if (response.jwttoken != null) {
+            if (response.user.role == "user") {
+              this.navigate("citymap")
+            } else if (response.user.role == "admin") {
+              this.navigate("menu")
+            }
+          }
+          this.loginError = false
+        });
+      } catch (e: unknown) {
+        this.loginError = true
       }
-    });
+    }
   }
 
   navigate(url: string) {
-    console.log(url);
     this.navigationService.navigate(url);
   }
 }

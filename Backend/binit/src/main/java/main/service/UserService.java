@@ -3,9 +3,10 @@ package main.service;
 import main.model.User;
 import main.repository.UserRepository;
 import main.security.CPasswordEncoder;
-import main.utils.JWTUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -15,9 +16,6 @@ public class UserService {
     private UserRepository userRepository;
 
     @Autowired
-    private JWTUtils jwtUtils;
-
-    @Autowired
     private CPasswordEncoder cPasswordEncoder;
 
     public UserService(UserRepository userRepository) {
@@ -25,9 +23,8 @@ public class UserService {
     }
 
     public int addUser(User user) {
-        System.out.println(123);
         try {
-           // user.setPassword(cPasswordEncoder.encode(user.getPassword()));
+            user.setPassword(cPasswordEncoder.encode(user.getPassword()));
             userRepository.save(user);
             return 1;
         } catch
@@ -44,9 +41,20 @@ public class UserService {
         return userRepository.findAll();
     }
 
+    public List<User> SortAllUsers() {
+        List<User> listUsers = findAllUsers();
+        Collections.sort(listUsers);
+        for (int i = 0; i < listUsers.size(); i++) {
+            System.out.println(listUsers.get(i));
+        }
+        return listUsers;
+    }
+
     public int addScore(int score, User user) {
         try {
             user.setScore(user.getScore() + score);
+            System.out.println(user.getScore());
+            System.out.println("Score: " + user.getScore() + score);
             userRepository.save(user);
             return 1;
         } catch (Exception e) {
@@ -77,7 +85,7 @@ public class UserService {
     public int resetPassword(String email, String newPassword) {
         try {
             User user = userRepository.findUserByEmail(email);
-            user.setPassword(newPassword);
+            user.setPassword(cPasswordEncoder.encode(newPassword));
             userRepository.save(user);
             return 1;
         } catch (Exception e) {
@@ -88,11 +96,4 @@ public class UserService {
     public User findUserByUsername(String username) {
         return userRepository.findUserByUsername(username);
     }
-
-   /* public User getCurrentUser(String token) {
-        final User finalAuthUser = jwtUtils.getUserFromToken(token);
-
-        if (finalAuthUser == null) return null;
-        else return finalAuthUser;
-    }*/
 }

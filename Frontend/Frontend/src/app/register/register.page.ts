@@ -25,7 +25,6 @@ export class RegisterPage implements OnInit {
   }
 
   addUser() {
-    alert(this.password)
     const user = {
       'userId': '',
       'email': this.email,

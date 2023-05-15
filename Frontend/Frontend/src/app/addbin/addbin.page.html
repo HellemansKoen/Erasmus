@@ -5,28 +5,21 @@
     </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
-    <br>
-    <div id="toggle">
-        <label class="toggle">
-        <input type="checkbox" id="kindLoc">
-        <span class="labels" data-on="LIVE LOCATION" data-off="CHOOSE OWN LOCATION" (click)="changeLocation($event)"></span>
-    </label>
-    </div>
     <div id="map" style="display: none">
         Show a map
     </div>
     <div class="kindBin">
         <ion-list style="width: 50%">
             <ion-item>
-                <ion-select aria-label="Fruit" placeholder="Select the kind of bin" [multiple]="false">
-                    <ion-select-option value="Plastic">Plastic</ion-select-option>
-                    <ion-select-option value="paper">Paper</ion-select-option>
-                    <ion-select-option value="glas">Glas</ion-select-option>
-                    <ion-select-option value="residual">Residual</ion-select-option>
+                <ion-select aria-label="Fruit" placeholder="Select the kind of bin" [multiple]="false" [(ngModel)]="kindBin">
+                    <ion-select-option value="PLASTIC">Plastic</ion-select-option>
+                    <ion-select-option value="PAPER">Paper</ion-select-option>
+                    <ion-select-option value="GLAS">Glas</ion-select-option>
+                    <ion-select-option value="RESIDUAL">Residual</ion-select-option>
                 </ion-select>
             </ion-item>
         </ion-list>
     </div>
     <br>
-    <ion-button (click)="saveBin()">Add post</ion-button>
+    <ion-button (click)="addBin()">Add post</ion-button>
 </ion-content>

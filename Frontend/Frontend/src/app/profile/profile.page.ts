@@ -20,6 +20,10 @@ export class ProfilePage implements OnInit {
   ngOnInit() {
   }
 
+  logout(){
+    localStorage.setItem('jwtToken',"");
+    this.navigate("login");
+  }
   navigate(location: string) {
     this.navigationService.navigate(location);
   }
