@@ -4,8 +4,8 @@ import main.model.User;
 
 public class JWTResponse {
 
-private User user;
-private String JWTToken;
+    private User user;
+    private String JWTToken;
 
     public JWTResponse(User user, String JWTToken) {
         this.user = user;

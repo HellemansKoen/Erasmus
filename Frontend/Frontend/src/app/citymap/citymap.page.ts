@@ -6,6 +6,7 @@ import { NavigationService } from '../service/navigation.service';
 import { ExploreContainerComponent } from "../explore-container/explore-container.component";
 import { GarbagebinService } from '../service/garbagebin.service';
 import * as Leaflet from 'leaflet';
+import { VoteService } from '../service/vote.service';
 
 @Component({
   selector: 'app-citymap',
@@ -17,7 +18,7 @@ import * as Leaflet from 'leaflet';
 export class CitymapPage implements OnInit {
   @Input('app-header') inData: any;
 
-  constructor(private navigationService: NavigationService, private garbagebinService: GarbagebinService) { }
+  constructor(private navigationService: NavigationService, private garbagebinService: GarbagebinService, private voteService: VoteService) { }
 
   AllBins: any[] = []
   map: Leaflet.Map | undefined
@@ -33,7 +34,7 @@ export class CitymapPage implements OnInit {
       }
     })
   }
-  
+
   ionViewDidEnter() {
     this.leafletMap();
   }
@@ -43,7 +44,7 @@ export class CitymapPage implements OnInit {
       console.log(111);
       this.map?.remove();
       this.map = Leaflet.map('mapId', {
-        minZoom: 15, maxZoom: 17,
+        minZoom: 15, maxZoom: 18,
       }).setView([41.178183, -8.606718], 20);
       Leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(this.map);
       this.map.locate({ setView: false, watch: false })
@@ -58,7 +59,7 @@ export class CitymapPage implements OnInit {
             this.garbagebinService.lat = e.latlng.lat.toString();
             this.garbagebinService.lng = e.latlng.lng.toString();
           }
-          this.map?.setView(latlng, 17);
+          this.map?.setView(latlng, 18);
           console.log(e.accuracy)
           this.placeAllMarkers();
         })
@@ -76,7 +77,13 @@ export class CitymapPage implements OnInit {
           iconUrl: '../../assets/images/binPointer.png',
           iconSize: [50, 50]
         });
-        Leaflet.marker([Number(this.AllBins[index].lat), Number(this.AllBins[index].lng)], { icon: myIcon }).addTo(this.map);
+        Leaflet.marker([Number(this.AllBins[index].lat), Number(this.AllBins[index].lng)], { icon: myIcon }).addTo(this.map).on('click', (e) => {
+          this.garbagebinService.binId = this.AllBins[index].binId;
+          this.navigate("singlebininfo")
+        });
+        // need to make this in a pop up
+        // let indBin = document.getElementById("myModal")!.style.display = "block"; 
+        ;
       }
     }
   }

@@ -3,9 +3,7 @@ package main.service;
 import main.repository.GarbageBinRepository;
 import main.model.GarbageBin;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -23,18 +21,6 @@ public class GarbageBinService {
     }
 
     public int addGarbageBin(GarbageBin garbageBin) {
-        try {
-            garbageBinRepository.save(garbageBin);
-            return 1;
-        } catch (Exception e) {
-            return 0;
-        }
-    }
-
-    public int confirmDeclineGarbageBin(String result, GarbageBin garbageBin) {
-        if (result.equals("confirm")) {
-        } else if (result.equals("declined")) {
-        }
         try {
             garbageBinRepository.save(garbageBin);
             return 1;

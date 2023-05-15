@@ -40,5 +40,9 @@ export const routes: Routes = [
   {
     path: 'leaderboard',
     loadComponent: () => import('./leaderboard/leaderboard.page').then( m => m.LeaderboardPage)
+  },
+  {
+    path: 'singlebininfo',
+    loadComponent: () => import('./singlebininfo/singlebininfo.page').then( m => m.SinglebininfoPage)
   }
 ];

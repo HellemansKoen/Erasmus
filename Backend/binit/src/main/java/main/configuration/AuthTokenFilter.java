@@ -1,7 +1,6 @@
 package main.configuration;
 
 import java.io.IOException;
-
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -18,6 +17,7 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.web.filter.OncePerRequestFilter;
 
 public class AuthTokenFilter extends OncePerRequestFilter {
+
     @Autowired
     private JWTUtils jwtUtils;
 
@@ -45,11 +45,8 @@ public class AuthTokenFilter extends OncePerRequestFilter {
                                     null,
                                     userDetails.getAuthorities());
                     authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-                    System.out.println("succes");
                     SecurityContextHolder.getContext().setAuthentication(authentication);
                 }
-            }else{
-                System.out.println("temp");
             }
         } catch (Exception e) {
             logger.error("Cannot set user authentication: {}", e);

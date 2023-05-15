@@ -19,13 +19,11 @@ public class UserController {
     @Autowired
     CPasswordEncoder cPasswordEncoder;
 
-    // OK
     @PostMapping("/addUser")
     public void addUser(@RequestBody User user) {
         userService.addUser(user);
     }
 
-    // OK
     @GetMapping("/getAllUsers")
     public List<User> getAllUsers() {
         return userService.findAllUsers();
@@ -33,14 +31,12 @@ public class UserController {
 
     @GetMapping("/getAllUsersSorted")
     public List<User> getAllUsersSorted() {
-
         return userService.SortAllUsers();
     }
 
     @GetMapping("/getUserById")
     public User getUserById(long userId) {
-        User user = userService.findUserById(userId);
-        return user;
+        return userService.findUserById(userId);
     }
 
     @PutMapping("/updateUser")
@@ -53,10 +49,8 @@ public class UserController {
         userService.removeUser(userid);
     }
 
-    // OK
     @PutMapping("/resetPassword")
     public int resetPassword(@RequestBody ResetPasswordObject obj) {
-
         if (userService.resetPassword(obj.getEmail(), obj.getPassword()) == 1) {
             return 1;
         } else {

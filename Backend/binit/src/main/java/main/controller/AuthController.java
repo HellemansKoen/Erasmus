@@ -31,9 +31,7 @@ public class AuthController {
 
     @GetMapping("/authenticate")
     public JWTResponse signin(@RequestParam String username, @RequestParam String password) {
-        System.out.println(username);
         User user = userService.findUserByUsername(username);
-        System.out.println(user);
         if (cPasswordEncoder.matches(password, user.getPassword())) {
             Credentials credentials = new Credentials(username, password);
             try {
@@ -48,7 +46,6 @@ public class AuthController {
 
     @GetMapping("/getCurrentRole")
     public String GetCurrentRole(@RequestParam String token){
-        System.out.println("test");
         User user = jwtUtils.getUserFromToken(token);
         return user.getRole();
     }
