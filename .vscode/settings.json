@@ -1,0 +1,9 @@
+{
+    "editor.emptySelectionClipboard": false,
+    "typescript.validate.enable": false,
+    "javascript.validate.enable": false,
+    "eslint.workingDirectories": [
+        "src"
+    ]
+      
+}

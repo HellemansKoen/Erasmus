@@ -1,19 +1,21 @@
 <ion-content [fullscreen]="true">
-    <div id="inloginformation">
+    <div id="inloginformation" class="wrapper ion-padding">
         <ion-img class="logo" src="../assets/icon/logo.png"></ion-img>
-        <ion-item class="inputLogin">
-            <ion-input label="Username" width="20%" labelPlacement="floating" placeholder="Enter username" [(ngModel)]="username"></ion-input>
-        </ion-item>
-        <ion-item class="inputLogin">
-            <ion-input label="Password" type="password" width="20%" labelPlacement="floating" placeholder="Enter password" [(ngModel)]="password"></ion-input>
-        </ion-item>
+        <ion-col class="ion-flex ion-text-center">
+          <h1>Log In</h1>
+          <p>Welcome back!</p>
+        </ion-col>
+        <ion-input class="" label="Username" fill="outline" labelPlacement="floating" placeholder="Enter username" [(ngModel)]="username" ></ion-input>
+        <ion-input class="ion-margin-top" label="Password" fill="outline" type="password" labelPlacement="floating" placeholder="Enter password" [(ngModel)]="password"></ion-input>
         <p *ngIf="loginError" id="loginError">
             There is something wrong with your username or password. Please try again
         </p>
-        <div class="divbuttons">
-            <ion-button (click)="login()">Log in</ion-button>
-            <ion-button fill="outline" (click)="navigate('register')" id="noAccount">No account yet</ion-button>
+        <ion-col class="ion-margin-top ion-margin-bottom">
+            <ion-button class="ion-margin-top" expand="block" size="large" (click)="login()">Log in</ion-button>
+            <ion-button class="ion-margin-top" expand="block" size="large" fill="outline" (click)="navigate('register')" id="noAccount">No account yet</ion-button>
+        </ion-col>
+        <div class="ion-margin-top ion-text-center">
+          <a label="forgotpassword" class="link" (click)="navigate('forgotpassword')" id="forgotpassword">Forgot password</a>
         </div>
-        <a (click)="navigate('forgotpassword')" id="forgotpassword">Forgot password</a>
     </div>
 </ion-content>
