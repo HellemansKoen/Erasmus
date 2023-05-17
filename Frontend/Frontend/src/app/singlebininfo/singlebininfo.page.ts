@@ -40,13 +40,11 @@ export class SinglebininfoPage implements OnInit {
   leafletMap(): void {
     this.map?.remove();
     this.map = Leaflet.map('map', {
-      minZoom: 15, maxZoom: 18,
+      minZoom: 15, maxZoom: 18
     }).setView([Number(this.garbagebinService.latSingleBin), Number(this.garbagebinService.lngSingleBin)], 20);
     Leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(this.map);
     this.map.locate({ setView: false, watch: false })
       .on('locationfound', (e) => {
-        var latlng = Leaflet.latLng(e.latlng.lat, e.latlng.lng);
-        this.map?.setView(latlng, 18);
         console.log(e.accuracy)
         this.currentBin();
       })
