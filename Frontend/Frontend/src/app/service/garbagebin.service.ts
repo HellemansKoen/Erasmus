@@ -7,12 +7,14 @@ import { Observable } from 'rxjs/internal/Observable';
 })
 export class GarbagebinService {
 
-  lat = ""
-  lng = ""
-  binId = 0
+  lat = "";
+  lng = "";
+  latSingleBin=""
+  lngSingleBin=""
+  binId = 0;
 
   constructor(private http: HttpClient) { }
-  
+
   /*
     public getBin(binId: String): Observable<any> {
       return this.http.get<any>(`'http://localhost:8080/api/garbageBin/getBin/${binId}`);
@@ -25,7 +27,7 @@ export class GarbagebinService {
   }
 
   addBin(bin: any, token: any) {
-    return this.http.post(`http://localhost:8080/api/vote/addBin?token=${token}`, bin);
+    return this.http.post(`http://localhost:8080/api/garbageBin/addBin?token=${token}`, bin);
   }
 
 }

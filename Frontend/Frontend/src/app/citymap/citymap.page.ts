@@ -79,11 +79,15 @@ export class CitymapPage implements OnInit {
         });
         Leaflet.marker([Number(this.AllBins[index].lat), Number(this.AllBins[index].lng)], { icon: myIcon }).addTo(this.map).on('click', (e) => {
           this.garbagebinService.binId = this.AllBins[index].binId;
+          console.log(this.garbagebinService.binId);
+          
+          this.garbagebinService.latSingleBin = this.AllBins[index].lat;
+          this.garbagebinService.lngSingleBin = this.AllBins[index].lng;
+          
           this.navigate("singlebininfo")
         });
         // need to make this in a pop up
         // let indBin = document.getElementById("myModal")!.style.display = "block"; 
-        ;
       }
     }
   }

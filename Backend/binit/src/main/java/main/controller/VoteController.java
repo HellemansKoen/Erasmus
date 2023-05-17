@@ -4,6 +4,7 @@ import main.model.IncomingVoteObject;
 import main.model.User;
 import main.model.Vote;
 import main.model.VoteType;
+import main.service.UserService;
 import main.service.VoteService;
 import main.utils.JWTUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,11 +21,14 @@ public class VoteController {
     @Autowired
     private JWTUtils jwtUtils;
 
+    @Autowired
+    private UserService userService;
+
     @PostMapping("/vote")
     public int rateBin(@RequestBody IncomingVoteObject incomingVoteObject, @RequestParam String token) {
-        System.out.println("test");
         User user = jwtUtils.getUserFromToken(token);
-        voteService.vote(new Vote(incomingVoteObject.getVoteType(), user.getUserId(),incomingVoteObject.getBinId()));
-        return 0;
+        Vote vote = new Vote(incomingVoteObject.getVoteType(), incomingVoteObject.getBinId(), user.getUserId());
+        userService.addScore(5, jwtUtils.getUserFromToken(token));
+        return voteService.vote(vote);
     }
 }

@@ -4,8 +4,8 @@ public class IncomingVoteObject {
     private VoteType voteType;
     private int binId;
 
-    public IncomingVoteObject(VoteType voteType, int binId) {
-        this.voteType = voteType;
+    public IncomingVoteObject(String voteType, int binId) {
+        setVoteType(voteType);
         this.binId = binId;
     }
 
@@ -13,8 +13,14 @@ public class IncomingVoteObject {
         return voteType;
     }
 
-    public void setVoteType(VoteType voteType) {
-        this.voteType = voteType;
+    public void setVoteType(String voteType) {
+        if (voteType.equals("UP")) {
+            this.voteType = VoteType.UP;
+        } else {
+            this.voteType = VoteType.DOWN
+            ;
+
+        }
     }
 
     public int getBinId() {
@@ -23,5 +29,13 @@ public class IncomingVoteObject {
 
     public void setBinId(int binId) {
         this.binId = binId;
+    }
+
+    @Override
+    public String toString() {
+        return "IncomingVoteObject{" +
+                "binId=" + binId +
+                ", voteType=" + voteType +
+                '}';
     }
 }

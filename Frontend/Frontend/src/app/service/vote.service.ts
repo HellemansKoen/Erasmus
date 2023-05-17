@@ -7,8 +7,9 @@ import { Injectable } from '@angular/core';
 export class VoteService {
 
   constructor(private http: HttpClient) { }
+  
   vote(voteType: string, token: string, binId: number) {
-    const vote = { "votetype": voteType, "binId": binId }
+    const vote = { "voteType": voteType, "binId": binId }
     console.log(token);
     return this.http.post(`http://localhost:8080/api/vote/vote?token=${token}`, vote);
   }

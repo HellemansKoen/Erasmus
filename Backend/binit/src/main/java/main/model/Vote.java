@@ -7,14 +7,17 @@ import jakarta.persistence.*;
 public class Vote {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int voteId;
+
+    @Column
+    @Enumerated(EnumType.STRING)
     private VoteType vote;
 
     @Column
-    //  @OneToMany
     private int binId;
 
     @Column
-    //   @OneToMany
     private int userId;
 
     public Vote() {}
@@ -23,6 +26,14 @@ public class Vote {
         this.vote = vote;
         this.binId = binId;
         this.userId = userId;
+    }
+
+    public int getVoteId() {
+        return voteId;
+    }
+
+    public void setVoteId(int voteId) {
+        this.voteId = voteId;
     }
 
     public VoteType getVote() {
@@ -47,5 +58,14 @@ public class Vote {
 
     public void setUserId(int userId) {
         this.userId = userId;
+    }
+
+    @Override
+    public String toString() {
+        return "Vote{" +
+                "binId=" + binId +
+                ", userId=" + userId +
+                ", vote=" + vote +
+                '}';
     }
 }
