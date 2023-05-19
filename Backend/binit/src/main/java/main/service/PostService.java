@@ -18,6 +18,7 @@ public class PostService {
 
     public int addPost(Post post) {
         try {
+            System.out.println("azerty 132");
             postRepository.save(post);
             return 1;
         } catch (Exception e) {

@@ -3,7 +3,6 @@ package main.model;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "post")
@@ -26,13 +25,13 @@ public class Post {
     private String content;
 
     @Column
-    private String imageUrl;
+    private byte[] imageUrl;
 
     // Constructors
     public Post() {
     }
 
-    public Post(int postId, String title, LocalDate date, String city, String content, String imageUrl) {
+    public Post(int postId, String title, LocalDate date, String city, String content, byte[] imageUrl) {
         this.postId = postId;
         this.title = title;
         this.date = date;
@@ -82,11 +81,11 @@ public class Post {
         this.city = city;
     }
 
-    public String getImageUrl() {
+    public byte[] getImageUrl() {
         return imageUrl;
     }
 
-    public void setImageUrl(String imageUrl) {
+    public void setImageUrl(byte[] imageUrl) {
         this.imageUrl = imageUrl;
     }
 

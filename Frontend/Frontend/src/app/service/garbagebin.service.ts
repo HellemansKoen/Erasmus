@@ -12,6 +12,7 @@ export class GarbagebinService {
   latSingleBin=""
   lngSingleBin=""
   binId = 0;
+  kindBin= ""
 
   constructor(private http: HttpClient) { }
 

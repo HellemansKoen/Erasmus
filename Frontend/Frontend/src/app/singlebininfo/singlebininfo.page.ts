@@ -23,6 +23,12 @@ export class SinglebininfoPage implements OnInit {
 
   ngOnInit() {
     this.binId = this.garbagebinService.binId;
+    let bin = document.getElementById("kindOfBin")
+    if (bin != null) {
+      let text = this.garbagebinService.kindBin.toString().toLowerCase();
+      // text = ;
+      bin.innerHTML = text.charAt(0).toUpperCase() + text.substring(1);
+    }
   }
 
   confirm() {

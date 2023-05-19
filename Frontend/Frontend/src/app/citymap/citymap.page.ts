@@ -47,7 +47,7 @@ export class CitymapPage implements OnInit {
         minZoom: 15, maxZoom: 18,
       }).setView([41.178183, -8.606718], 20);
       Leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(this.map);
-      this.map.locate({ setView: false, watch: false })
+      this.map.locate({ setView: false, watch: false, enableHighAccuracy:true })
         .on('locationfound', (e) => {
           var latlng = Leaflet.latLng(e.latlng.lat, e.latlng.lng);
           var myIcon = Leaflet.icon({
@@ -83,6 +83,7 @@ export class CitymapPage implements OnInit {
           
           this.garbagebinService.latSingleBin = this.AllBins[index].lat;
           this.garbagebinService.lngSingleBin = this.AllBins[index].lng;
+          this.garbagebinService.kindBin = this.AllBins[index].kindBin;
           
           this.navigate("singlebininfo")
         });
