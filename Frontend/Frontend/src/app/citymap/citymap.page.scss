@@ -1,24 +1,27 @@
-#btnAdd {
-    color: primary;
-    position: absolute;
-    right: 10px;
-    bottom: 5em;
-    border-radius: 10px;
-    box-shadow: 5px 5px 5px;
-    z-index: 400;
+.btn-circular {
+  padding: 16px;
+  background-color: #f07f12;
+  position: absolute;
+  z-index: 400;
+  right: 10px;
+  border-radius: 50px;
+
+  &:hover {
+    background-color: #de6b00;
+  }
+}
+.btn-locate {
+  bottom: 14em;
 }
 
-#locate {
-    color: primary;
-    position: absolute;
-    right: 10px;
-    bottom: 10em;
-    border-radius: 10px;
-    box-shadow: 5px 5px 5px;
-    z-index: 400;
+.btn-add {
+  bottom: 8em;
 }
 
-
+.logo {
+  width: 80px;
+  padding-left: 10px;
+}
 /*
 .modal {
     display: none;
@@ -79,7 +82,7 @@
 }
 
 
-/* Add Animation 
+/* Add Animation
 
 @-webkit-keyframes slideIn {
     from {
