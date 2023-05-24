@@ -1,15 +1,29 @@
 #logout {
-    position: fixed;
-    top: 0;
-    right: 0;
-    font-size: 2em;
-    padding: 5px;
-    padding-right: 15px;
-    margin-top: 6px;
-    color: #000;
+  position: fixed;
+  top: 0;
+  right: 0;
+  font-size: 2em;
+  padding: 5px;
+  padding-right: 15px;
+  margin-top: 6px;
+  color: #000;
 }
 
 ion-img {
-    width: 70px;
-    margin: auto;
+  width: 70px;
+  margin: auto;
+}
+
+.profile-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 600px;
+  padding: 0 10px 0 10px;
+  margin: auto;
 }

@@ -5,6 +5,19 @@
     </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
-    <h2 (click)="navigate('leaderboard')">Leaderboard</h2>
-    <app-explore-container name="Tab 3 page"></app-explore-container>
+  <section class="wrapper">
+    <h2>Profile</h2>
+    <ion-card>
+      <ion-card-header class="profile-card">
+        <div>
+          <ion-card-title>James Doe</ion-card-title>
+          <ion-card-subtitle>member since February 2023</ion-card-subtitle>
+        </div>
+        <ion-avatar>
+          <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+        </ion-avatar>
+      </ion-card-header>
+    </ion-card>
+    <a (click)="navigate('leaderboard')">Leaderboard</a>
+  </section>
 </ion-content>
