@@ -1,25 +1,26 @@
 <ion-header>
     <ion-toolbar style="background: var(--primary);">
         <ion-icon name="arrow-back-outline" (click)="navigate('citymap')" id="arrowBack"></ion-icon>
-        <ion-img src="../../assets/icon/logo.png" style="width: 80px; margin: auto;"></ion-img>
+        <h3 class="ion-text-center">Add a bin</h3>
     </ion-toolbar>
 </ion-header>
-<ion-content [fullscreen]="true">
-    <div id="map" style="display: none">
+<ion-content [fullscreen]="true" class="ion-padding">
+  <section class="wrapper">
+      <div id="map" style="display: none">
         Show a map
-    </div>
+      </div>
     <div class="kindBin">
-        <ion-list style="width: 50%">
-            <ion-item>
-                <ion-select aria-label="Fruit" placeholder="Select the kind of bin" [multiple]="false" [(ngModel)]="kindBin">
+      <!-- <ion-chip>Plastic</ion-chip> -->
+        <ion-list class="ion-padding-top">
+              <ion-select label="Select type of bin" label-placement="floating" fill="outline" aria-label="Bin type" [multiple]="true" [(ngModel)]="kindBin">
                     <ion-select-option value="PLASTIC">Plastic</ion-select-option>
                     <ion-select-option value="PAPER">Paper</ion-select-option>
                     <ion-select-option value="GLAS">Glas</ion-select-option>
                     <ion-select-option value="RESIDUAL">Residual</ion-select-option>
-                </ion-select>
-            </ion-item>
+              </ion-select>
         </ion-list>
     </div>
-    <br>
-    <ion-button (click)="addBin()">Add post</ion-button>
+    <ion-button class="position-bottom ion-justify-content-end" expand="block" size="large" (click)="addBin()">Add post</ion-button>
+  </section>
 </ion-content>
+

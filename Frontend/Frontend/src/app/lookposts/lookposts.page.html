@@ -1,24 +1,27 @@
-<ion-header>
-    <ion-toolbar style="background: var(--primary);">
-        <ion-img src="../../assets/icon/logo.png" style="width: 60px; margin: auto;"></ion-img>
-    </ion-toolbar>
-</ion-header>
 <ion-content [fullscreen]="true">
+  <section class="wrapper">
     <ion-text color="primary">
-        <h1>Information form</h1>
+      <h1>Recycling in the city</h1>
     </ion-text>
-    <div *ngFor="let item of listPosts">
-        <ion-card class="card">
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" *ngFor="let item of listPosts">
+          <ion-card class="card">
             <ion-img src="{{item.imageUrl}}" id="img"></ion-img>
             <ion-card-header>
-                <ion-card-title>{{item.title}}</ion-card-title>
-                <ion-card-subtitle>{{item.city}}</ion-card-subtitle>
+                <ion-card-title>{{item.city}}</ion-card-title>
             </ion-card-header>
-            <ion-card-content>{{item.content}}</ion-card-content>
-            <ion-card-content>{{item.date}}</ion-card-content>
+          </ion-card>
+      </ion-col>
+      </ion-row>
+      <ion-col size="12" *ngIf="listPosts.length == 0">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle class="ion-text-center">No posts yet</ion-card-subtitle>
+          </ion-card-header>
         </ion-card>
-    </div>
-    <div *ngIf="listPosts.length == 0">
-        <p>No posts yet</p>
-    </div>
+      </ion-col>
+    </ion-grid>
+  </section>
 </ion-content>
+
