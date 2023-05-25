@@ -17,7 +17,7 @@ export class AddbinPage implements OnInit {
 
   constructor(private garbagebinService: GarbagebinService, private navigationService: NavigationService, private modalCtrl: ModalController) { }
 
-  kindBin = 0;
+  kindBin: any[] | undefined;
 
   ngOnInit() { }
 

@@ -18,6 +18,10 @@ export class PostService {
   public getAllPosts(): Observable<any[]> {
     return this.http.get<any[]>('http://localhost:8080/api/post/getAllPosts');
   }
+  
+  public getAllPostsByCity(city: string): Observable<any[]> {
+    return this.http.get<any[]>(`http://localhost:8080/api/post/${city}`);
+  }
 
   public removePost(postId: any) {
     return this.http.delete(`http://localhost:8080/api/post/deletePost?postId=${postId}`);

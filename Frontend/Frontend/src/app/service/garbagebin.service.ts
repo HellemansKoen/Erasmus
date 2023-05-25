@@ -24,7 +24,6 @@ export class GarbagebinService {
 
   public getAllBins(): Observable<any[]> {
     return this.http.get<any[]>('http://localhost:8080/api/garbageBin/getAllBins');
-
   }
 
   addBin(bin: any, token: any) {

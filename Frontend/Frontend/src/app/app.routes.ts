@@ -44,5 +44,13 @@ export const routes: Routes = [
   {
     path: 'singlebininfo',
     loadComponent: () => import('./singlebininfo/singlebininfo.page').then( m => m.SinglebininfoPage)
+  },
+  {
+    path: 'cityposts',
+    loadComponent: () => import('./cityposts/cityposts.page').then( m => m.CitypostsPage)
+  },
+  {
+    path: 'generalposts',
+    loadComponent: () => import('./generalposts/generalposts.page').then( m => m.GeneralpostsPage)
   }
 ];

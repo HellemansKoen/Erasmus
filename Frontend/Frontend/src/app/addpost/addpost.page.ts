@@ -18,7 +18,7 @@ export class AddpostPage implements OnInit {
   content: string = "";
   city: string = "";
   imgString: string = "";
-  
+
   constructor(private postService: PostService) { }
 
   ngOnInit() { }
@@ -51,8 +51,10 @@ export class AddpostPage implements OnInit {
       this.readFile(file, Subscriber)
     })
     observable.subscribe((d) => {
-      console.log(d); 
+      console.log(d);
       this.imgString = d
+      this.imgString = this.imgString.split(",")[1]
+      console.log(this.imgString);
     })
   }
 
