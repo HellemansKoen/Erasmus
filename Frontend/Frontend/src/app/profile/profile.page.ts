@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { ExploreContainerComponent } from "../explore-container/explore-container.component";
 import { NavigationService } from '../service/navigation.service';
 import { PostService } from '../service/post.service';
+import { UserService } from '../service/user.service';
 
 @Component({
     selector: 'app-profile',
@@ -15,9 +16,17 @@ import { PostService } from '../service/post.service';
 })
 export class ProfilePage implements OnInit {
 
-  constructor(private navigationService: NavigationService) { }
+
+  listUsers: any[] = []
+  constructor(private userService: UserService, private navigationService: NavigationService) { }
+
 
   ngOnInit() {
+    this.userService.getAllUsersSorted().subscribe(users => {
+      for (let user = 0; user < users.length; user++) {
+      this.listUsers.push(users[user])
+      }
+    })
   }
 
   logout(){
