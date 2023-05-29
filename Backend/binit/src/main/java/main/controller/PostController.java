@@ -4,7 +4,6 @@ import main.model.Post;
 import main.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,6 +17,7 @@ public class PostController {
 
     @PostMapping("/addPost")
     public void addPost(@RequestBody Post post) {
+        System.out.println(post.getImageUrl().length());
         postService.addPost(post);
     }
 
@@ -28,6 +28,7 @@ public class PostController {
 
     @GetMapping("/getAllPostsByCity")
     public List getAllBins(@RequestParam String city) {
+        System.out.println("city");
         List<Post> list = postService.getAllPosts();
         List<Post> listFromCity = new ArrayList<>();
         for (int i = 0; i < list.size(); i++) {
@@ -38,7 +39,23 @@ public class PostController {
         return listFromCity;
     }
 
-
+ /*   @GetMapping("/getAllCities")
+    public List getAllCities() {
+        System.out.println("city");
+        List<Post> list = postService.getAllPosts();
+        List<String> listCities = new ArrayList<>();
+        for (int i = 0; i < list.size(); i++) {
+            String city = list.get(i).getCity();
+            if (!listCities.contains(city)) {
+                if (!city.equals("general")) {
+                    listCities.add(city);
+                }
+            }
+        }
+        System.out.println(listCities.size());
+        return listCities;
+    }
+*/
     @DeleteMapping("/deletePost")
     public void deletePost(@RequestParam long postId) {
         postService.deletePost(postService.getPostById(postId));

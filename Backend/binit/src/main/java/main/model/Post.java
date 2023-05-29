@@ -24,14 +24,14 @@ public class Post {
     @Column
     private String content;
 
-    @Column
-    private byte[] imageUrl;
+    @Column(columnDefinition = "LONGTEXT")
+    private String imageUrl;
 
     // Constructors
     public Post() {
     }
 
-    public Post(int postId, String title, LocalDate date, String city, String content, byte[] imageUrl) {
+    public Post(int postId, String title, LocalDate date, String city, String content, String imageUrl) {
         this.postId = postId;
         this.title = title;
         this.date = date;
@@ -81,11 +81,11 @@ public class Post {
         this.city = city;
     }
 
-    public byte[] getImageUrl() {
+    public String getImageUrl() {
         return imageUrl;
     }
 
-    public void setImageUrl(byte[] imageUrl) {
+    public void setImageUrl(String imageUrl) {
         this.imageUrl = imageUrl;
     }
 

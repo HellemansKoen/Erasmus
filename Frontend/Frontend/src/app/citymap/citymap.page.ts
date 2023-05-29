@@ -47,7 +47,7 @@ export class CitymapPage implements OnInit {
         minZoom: 15, maxZoom: 18,
       }).setView([41.178183, -8.606718], 20);
       Leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(this.map);
-      this.map.locate({ setView: false, watch: false, enableHighAccuracy:true })
+      this.map.locate({ setView: false, watch: false, enableHighAccuracy: true })
         .on('locationfound', (e) => {
           var latlng = Leaflet.latLng(e.latlng.lat, e.latlng.lng);
           var myIcon = Leaflet.icon({
@@ -73,18 +73,26 @@ export class CitymapPage implements OnInit {
   placeAllMarkers() {
     for (let index = 0; index < this.AllBins.length; index++) {
       if (this.map) {
-        var myIcon = Leaflet.icon({
-          iconUrl: '../../assets/images/binPointer.png',
-          iconSize: [50, 50]
-        });
+        var myIcon
+        if (this.AllBins[index].state ="empty") {
+          myIcon = Leaflet.icon({
+            iconUrl: '../../assets/images/binPointer.png',
+            iconSize: [40, 50]
+          });
+        } else {
+          myIcon = Leaflet.icon({
+            iconUrl: '../../assets/images/FullcurrentLoc.png',
+            iconSize: [40, 50]
+          });
+        }
+
         Leaflet.marker([Number(this.AllBins[index].lat), Number(this.AllBins[index].lng)], { icon: myIcon }).addTo(this.map).on('click', (e) => {
           this.garbagebinService.binId = this.AllBins[index].binId;
-          console.log(this.garbagebinService.binId);
-          
           this.garbagebinService.latSingleBin = this.AllBins[index].lat;
           this.garbagebinService.lngSingleBin = this.AllBins[index].lng;
           this.garbagebinService.kindBin = this.AllBins[index].kindBin;
-          
+          this.garbagebinService.binFull = this.AllBins[index].binFull;
+
           this.navigate("singlebininfo")
         });
         // need to make this in a pop up

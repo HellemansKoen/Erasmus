@@ -19,8 +19,13 @@ export class PostService {
     return this.http.get<any[]>('http://localhost:8080/api/post/getAllPosts');
   }
   
+/*
+  public getAllCities(): Observable<any[]> {
+    return this.http.get<any[]>('http://localhost:8080/api/post/getAllCities');
+  }*/
+
   public getAllPostsByCity(city: string): Observable<any[]> {
-    return this.http.get<any[]>(`http://localhost:8080/api/post/${city}`);
+    return this.http.get<any[]>(`http://localhost:8080/api/post/getAllPostsByCity?city=${city}`);
   }
 
   public removePost(postId: any) {

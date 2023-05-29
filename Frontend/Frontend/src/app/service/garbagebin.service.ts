@@ -13,6 +13,7 @@ export class GarbagebinService {
   lngSingleBin=""
   binId = 0;
   kindBin= ""
+  binFull = ""
 
   constructor(private http: HttpClient) { }
 
@@ -29,5 +30,7 @@ export class GarbagebinService {
   addBin(bin: any, token: any) {
     return this.http.post(`http://localhost:8080/api/garbageBin/addBin?token=${token}`, bin);
   }
-
+  full(state: string ,binId: number) {
+    return this.http.put(`http://localhost:8080/api/garbageBin/full?binId=${binId}`,state);
+  }
 }

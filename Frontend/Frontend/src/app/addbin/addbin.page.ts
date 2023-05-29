@@ -27,7 +27,8 @@ export class AddbinPage implements OnInit {
         'binId': '',
         'lat': this.garbagebinService.lat,
         'lng': this.garbagebinService.lng,
-        'kindBin': this.kindBin
+        'kindBin': this.kindBin,
+        'state' : 'empty'
       }
       let token = localStorage.getItem("jwtToken");
       this.garbagebinService.addBin(bin, token).subscribe();

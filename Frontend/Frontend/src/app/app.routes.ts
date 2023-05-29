@@ -52,5 +52,9 @@ export const routes: Routes = [
   {
     path: 'generalposts',
     loadComponent: () => import('./generalposts/generalposts.page').then( m => m.GeneralpostsPage)
+  },
+  {
+    path: 'individualcityposts',
+    loadComponent: () => import('./individualcityposts/individualcityposts.page').then( m => m.IndividualcitypostsPage)
   }
 ];

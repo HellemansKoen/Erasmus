@@ -26,8 +26,18 @@ export class SinglebininfoPage implements OnInit {
     let bin = document.getElementById("kindOfBin")
     if (bin != null) {
       let text = this.garbagebinService.kindBin.toString().toLowerCase();
-      // text = ;
       bin.innerHTML = text.charAt(0).toUpperCase() + text.substring(1);
+      let empty = document.getElementById("empty")
+      let full = document.getElementById("full")
+      if (empty != null && full != null) {
+        if (this.garbagebinService.binFull == "empty") {
+          empty.style.display = "none"
+          full.style.display = "block"
+        } else {
+          empty.style.display = "block"
+          full.style.display = "none"
+        }
+      }
     }
   }
 
@@ -37,6 +47,12 @@ export class SinglebininfoPage implements OnInit {
 
   decline() {
     this.voteService.vote("DOWN", localStorage.getItem("jwtToken") || "", this.binId).subscribe()
+  }
+  full() {
+    this.garbagebinService.full("full", this.binId).subscribe()
+  }
+  empty() {
+    this.garbagebinService.full("empty", this.binId).subscribe()
   }
 
   ionViewDidEnter() {

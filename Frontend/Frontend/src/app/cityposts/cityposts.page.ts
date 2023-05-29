@@ -15,21 +15,21 @@ import { NavigationService } from '../service/navigation.service';
 export class CitypostsPage implements OnInit {
 
   city = "";
-  AllBinsCity: any[] = []
+  AllCities: any[] = []
 
   constructor(private postService: PostService, private navigationService: NavigationService) {
   }
 
   ngOnInit() {
-    this.city = localStorage.getItem('city') || "";
-    this.postService.getAllPostsByCity(this.city).subscribe(posts => {
-      for (let post = 0; post < posts.length; post++) {
-        this.AllBinsCity.push(posts[post]);
-      }
-    })
+    /*    this.postService.getAllCities().subscribe(cities => {
+          for (let city = 0; city < cities.length; city++) {
+            this.AllCities.push(cities[city]);
+          }
+        })*/
   }
 
-  navigate(location: string) {
+  navigate(location: string, city: string) {
+    localStorage.setItem("SinglePostCity", city);
     this.navigationService.navigate(location);
   }
 }

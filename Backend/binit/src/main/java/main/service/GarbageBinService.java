@@ -4,6 +4,7 @@ import main.repository.GarbageBinRepository;
 import main.model.GarbageBin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 
 @Service
@@ -32,6 +33,17 @@ public class GarbageBinService {
     public int removeGarbageBin(GarbageBin garbageBin) {
         try {
             garbageBinRepository.delete(garbageBin);
+            return 1;
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+
+    public int fullBin(Long binId, String state) {
+        try {
+            GarbageBin garbageBin = garbageBinRepository.findGarbagebinByBinId(binId);
+            garbageBin.setState(state);
+            garbageBinRepository.save(garbageBin);
             return 1;
         } catch (Exception e) {
             return 0;

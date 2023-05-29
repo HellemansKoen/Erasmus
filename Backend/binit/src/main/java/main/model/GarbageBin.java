@@ -16,6 +16,9 @@ public class GarbageBin {
     @Column
     private String lng;
 
+    @Column
+    private String state;
+
     @Enumerated(EnumType.STRING)
     @Column
     private KindBin kindBin;
@@ -24,14 +27,16 @@ public class GarbageBin {
     public GarbageBin() {
     }
 
-    public GarbageBin(int binId, String lat, String lng, KindBin kindBin) {
+    public GarbageBin(int binId, String lat, String lng, String State, KindBin kindBin) {
         this.binId = binId;
         this.lat = lat;
         this.lng = lng;
+        this.state = State;
         this.kindBin = kindBin;
     }
 
-    // Methodes
+
+// Methodes
 
     // Getters and Setters
 
@@ -65,5 +70,13 @@ public class GarbageBin {
 
     public void setKindBin(KindBin kindBin) {
         this.kindBin = kindBin;
+    }
+
+    public String isState() {
+        return state;
+    }
+
+    public void setState(String State) {
+        this.state = State;
     }
 }

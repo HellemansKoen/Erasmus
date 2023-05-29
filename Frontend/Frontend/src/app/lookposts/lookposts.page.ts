@@ -13,24 +13,11 @@ import { NavigationService } from '../service/navigation.service';
   imports: [IonicModule, CommonModule, FormsModule]
 })
 export class LookpostsPage implements OnInit {
-
-  listPosts: any[] = [];
-
-  constructor(private postService: PostService,  private navigationService: NavigationService) { }
+  constructor(private navigationService: NavigationService) { }
 
   ngOnInit(): void {
-    this.postService.getAllPosts().subscribe(posts => {
-      for (let post = 0; post < posts.length; post++) {
-        /*
-        console.log(posts[post].imageUrl);
-        let blobUrl = URL.createObjectURL(posts[post].imageUrl);
-         let img = document.getElementById('img') as HTMLImageElement;
-         img.src = blobUrl;
-         */
-        this.listPosts.push(posts[post]);
-      }
-    })
   }
+
   navigate(location: string) {
     this.navigationService.navigate(location);
   }

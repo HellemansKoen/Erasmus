@@ -18,7 +18,7 @@ export class AddpostPage implements OnInit {
   content: string = "";
   city: string = "";
   imgString: string = "";
-
+  checkbox: number = 0
   constructor(private postService: PostService) { }
 
   ngOnInit() { }
@@ -29,6 +29,9 @@ export class AddpostPage implements OnInit {
     var mm = now.getMonth() + 1;
     var yyyy = now.getFullYear();
     var date = new Date(yyyy + "-" + mm + "-" + dd);
+    if(this.checkbox){
+      this.city = 'general'
+    }
     const post = {
       'postId': '',
       'title': this.title,
