@@ -43,7 +43,6 @@ public class JWTUtils {
     }
 
     public boolean validateToken(String token) {
-        // TODO: dit is niet super veilig :)
         String username = getUserNameFromToken(token);
         return username != null && !isTokenExpired(token);
     }

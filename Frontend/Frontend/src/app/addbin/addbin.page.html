@@ -5,22 +5,21 @@
     </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true" class="ion-padding">
-  <section class="wrapper">
-      <div id="map" style="display: none">
-        Show a map
-      </div>
-    <div class="kindBin">
-      <!-- <ion-chip>Plastic</ion-chip> -->
-        <ion-list class="ion-padding-top">
-              <ion-select label="Select type of bin" label-placement="floating" fill="outline" aria-label="Bin type" [multiple]="true" [(ngModel)]="kindBin">
+    <section class="wrapper">
+        <div id="map" style="display: none">
+            Show a map
+        </div>
+        <div class="kindBin">
+            <!-- <ion-chip>Plastic</ion-chip> -->
+            <ion-list class="ion-padding-top">
+                <ion-select label="Select type of bin" label-placement="floating" fill="outline" aria-label="Bin type" [multiple]="false" [(ngModel)]="kindBin">
                     <ion-select-option value="PLASTIC">Plastic</ion-select-option>
                     <ion-select-option value="PAPER">Paper</ion-select-option>
                     <ion-select-option value="GLAS">Glas</ion-select-option>
                     <ion-select-option value="RESIDUAL">Residual</ion-select-option>
-              </ion-select>
-        </ion-list>
-    </div>
-    <ion-button class="position-bottom ion-justify-content-end" expand="block" size="large" (click)="addBin()">Add post</ion-button>
-  </section>
+                </ion-select>
+            </ion-list>
+        </div>
+        <ion-button class="position-bottom ion-justify-content-end" expand="block" size="large" (click)="addBin()">Add post</ion-button>
+    </section>
 </ion-content>
-

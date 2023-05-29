@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { PostService } from '../service/post.service';
+import { NavigationService } from '../service/navigation.service';
 
 @Component({
   selector: 'app-lookposts',
@@ -15,7 +16,7 @@ export class LookpostsPage implements OnInit {
 
   listPosts: any[] = [];
 
-  constructor(private postService: PostService) { }
+  constructor(private postService: PostService,  private navigationService: NavigationService) { }
 
   ngOnInit(): void {
     this.postService.getAllPosts().subscribe(posts => {
@@ -29,5 +30,8 @@ export class LookpostsPage implements OnInit {
         this.listPosts.push(posts[post]);
       }
     })
+  }
+  navigate(location: string) {
+    this.navigationService.navigate(location);
   }
 }
