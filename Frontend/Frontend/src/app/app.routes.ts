@@ -56,5 +56,9 @@ export const routes: Routes = [
   {
     path: 'individualcityposts',
     loadComponent: () => import('./individualcityposts/individualcityposts.page').then( m => m.IndividualcitypostsPage)
+  },
+  {
+    path: 'postdetails',
+    loadComponent: () => import('./postdetails/postdetails.page').then( m => m.PostdetailsPage)
   }
 ];

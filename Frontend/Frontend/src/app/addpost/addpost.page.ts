@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { PostService } from '../service/post.service';
 import { Observable, Subscriber } from 'rxjs';
+import { NavigationService } from '../service/navigation.service';
 
 @Component({
   selector: 'app-addpost',
@@ -19,7 +20,7 @@ export class AddpostPage implements OnInit {
   city: string = "";
   imgString: string = "";
   checkbox: number = 0
-  constructor(private postService: PostService) { }
+  constructor(private postService: PostService, private navigationService: NavigationService) { }
 
   ngOnInit() { }
 
@@ -41,6 +42,10 @@ export class AddpostPage implements OnInit {
       "imageUrl": this.imgString
     }
     this.postService.addPost(post).subscribe(() => console.log("post added"));
+    this.navigate("manageposts")
+  }
+  navigate(url: string){
+    this.navigationService.navigate(url)
   }
 
   loadImageFromDevice($event: Event) {
@@ -54,10 +59,11 @@ export class AddpostPage implements OnInit {
       this.readFile(file, Subscriber)
     })
     observable.subscribe((d) => {
+      console.log(this.imgString);
+
       console.log(d);
       this.imgString = d
-      this.imgString = this.imgString.split(",")[1]
-      console.log(this.imgString);
+    //  this.imgString = this.imgString.split(",")[1]
     })
   }
 

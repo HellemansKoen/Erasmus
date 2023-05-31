@@ -17,7 +17,6 @@ public class PostController {
 
     @PostMapping("/addPost")
     public void addPost(@RequestBody Post post) {
-        System.out.println(post.getImageUrl().length());
         postService.addPost(post);
     }
 
