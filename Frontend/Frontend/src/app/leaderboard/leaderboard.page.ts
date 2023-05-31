@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { UserService } from '../service/user.service';
+import { NavigationService } from '../service/navigation.service';
 
 @Component({
   selector: 'app-leaderboard',
@@ -14,7 +15,7 @@ import { UserService } from '../service/user.service';
 export class LeaderboardPage implements OnInit {
 
   listUsers: any[] = []
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private navigationService: NavigationService) { }
 
   ngOnInit() {
     this.userService.getAllUsersSorted().subscribe(users => {
@@ -23,5 +24,9 @@ export class LeaderboardPage implements OnInit {
       }
     })
     console.log(this.listUsers); // Werkt
+  }
+
+  navigate(url: string) {
+    this.navigationService.navigate(url);
   }
 }
