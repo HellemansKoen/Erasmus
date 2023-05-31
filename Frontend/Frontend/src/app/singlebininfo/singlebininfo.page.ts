@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { GarbagebinService } from '../service/garbagebin.service';
 import { VoteService } from '../service/vote.service';
+import { NavigationService } from '../service/navigation.service';
 import * as Leaflet from 'leaflet';
 
 @Component({
@@ -18,7 +19,7 @@ export class SinglebininfoPage implements OnInit {
   binId = 0
   map: Leaflet.Map | undefined
 
-  constructor(private garbagebinService: GarbagebinService, private voteService: VoteService) {
+  constructor(private garbagebinService: GarbagebinService, private voteService: VoteService, private navigationService: NavigationService) {
   }
 
   ngOnInit() {
@@ -84,5 +85,9 @@ export class SinglebininfoPage implements OnInit {
       });
       Leaflet.marker([Number(this.garbagebinService.latSingleBin), Number(this.garbagebinService.lngSingleBin)], { icon: myIcon }).addTo(this.map);
     }
+  }
+
+  navigate(url: string) {
+    this.navigationService.navigate(url);
   }
 }

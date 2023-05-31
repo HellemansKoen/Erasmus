@@ -18,30 +18,10 @@
           </ion-avatar>
         </ion-card-header>
       </ion-card>
+      <div class="ion-padding">
+        <ion-button expand="block" fill="outline">Go to leaderboard</ion-button>
+      </div>
     </ion-col>
-    <ion-title>Leaderboard</ion-title>
-    <ion-grid>
-      <ion-card>
-        <ion-card-header class="user-card-info">
-          <ion-card-content>username</ion-card-content>
-          <ion-card-content>1000</ion-card-content>
-        </ion-card-header>
-      </ion-card>
-      <ion-card>
-        <ion-card-header class="user-card-info">
-          <ion-card-content>username</ion-card-content>
-          <ion-card-content>1000</ion-card-content>
-        </ion-card-header>
-      </ion-card>
-      <ion-col *ngFor="let user of listUsers">
-        <ion-card>
-          <ion-card-header class="user-card-info">
-            <ion-card-content>{{user.username}}</ion-card-content>
-            <ion-card-content>{{user.score}}</ion-card-content>
-          </ion-card-header>
-        </ion-card>
-      </ion-col>
-    </ion-grid>
     <ion-col>
       <ion-title>Badges</ion-title>
       <ion-grid>
