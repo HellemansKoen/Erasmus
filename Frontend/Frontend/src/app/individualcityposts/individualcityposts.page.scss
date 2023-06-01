@@ -1,0 +1,23 @@
+.arrow-back {
+  position: fixed;
+  top: 0;
+  left: 5;
+  font-size: 2em;
+  padding: 5px;
+  margin-top: 6px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  padding-top: 24px;
+}
+
+.img-round-border {
+  border-radius: 40px !important;
+}

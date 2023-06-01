@@ -1,0 +1,33 @@
+.arrow-back {
+  position: fixed;
+  top: 0;
+  left: 5;
+  font-size: 2em;
+  padding: 5px;
+  margin-top: 6px;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 600px;
+  padding: 0 10px 0 10px;
+  margin: auto;
+}
+
+.card {
+  &:hover {
+    cursor: pointer;
+    transition: 70ms ease-in;
+    scale: 1.03;
+  }
+}
+
+.post-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}

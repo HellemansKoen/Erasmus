@@ -13,7 +13,7 @@ import { NavigationService } from '../service/navigation.service';
   imports: [IonicModule, CommonModule, FormsModule]
 })
 export class GeneralpostsPage implements OnInit {
-  
+
   listPosts: any[] = [];
 
   constructor(private postService: PostService,  private navigationService: NavigationService) { }
@@ -24,5 +24,9 @@ export class GeneralpostsPage implements OnInit {
         this.listPosts.push(posts[post]);
       }
     })
+  }
+
+  navigate(url: string) {
+    this.navigationService.navigate(url);
   }
 }

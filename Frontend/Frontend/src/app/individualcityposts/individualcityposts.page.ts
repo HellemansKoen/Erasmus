@@ -32,4 +32,8 @@ export class IndividualcitypostsPage implements OnInit {
     localStorage.setItem('postId', postId.toString());
     this.navigationService.navigate("postdetails");
   }
+
+  navigateBack(url: string) {
+    this.navigationService.navigate(url);
+  }
 }

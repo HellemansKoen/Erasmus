@@ -5,10 +5,12 @@
 }
 
 .card {
+  margin-top: 16px;
+  margin-bottom: 32px;
   &:hover {
     cursor: pointer;
-    transition: 60ms ease-in;
-    scale: 1.05;
+    transition: 70ms ease-in;
+    scale: 1.01;
   }
 }
 
