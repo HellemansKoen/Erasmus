@@ -1,5 +1,5 @@
 <ion-content [fullscreen]="true">
-  <ion-header>
+  <ion-header >
     <ion-toolbar style="background: var(--primary);">
         <ion-icon name="arrow-back-outline" (click)="navigate('citymap')" class="arrow-back"></ion-icon>
         <h3 class="ion-text-center">Details</h3>
@@ -18,14 +18,20 @@
         <ion-text>
           <h5>Is the bin full or empty?</h5>
         </ion-text>
-        <div class="button-group">
-          <ion-button class="ion-margin-top" size="default" fill="outline"(click)="full()" id="full">
-            Full
-          </ion-button>
-          <ion-button class="ion-margin-top" size="default" fill="outline" (click)="empty()">
-            Empty
-          </ion-button>
-        </div>
+        <ion-grid>
+          <ion-row>
+            <ion-col size="6">
+              <ion-button expand="block" size="default" fill="outline"(click)="full()" id="full">
+                Full
+              </ion-button>
+            </ion-col>
+            <ion-col size="6">
+              <ion-button expand="block" size="default" fill="outline" (click)="empty()">
+                Empty
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </div>
       <div>
         <ion-text>
