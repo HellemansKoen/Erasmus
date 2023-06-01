@@ -13,16 +13,19 @@ import { PostService } from '../service/post.service';
 })
 export class PostdetailsPage implements OnInit {
 
-  
-
+  content = "";
+  title = "";
+  img =""
   constructor(private postService: PostService) { }
 
   ngOnInit() {
     let postId = localStorage.getItem('postId') || ""
-    let post= "";
     this.postService.getPostById(postId).subscribe(data => {
-      post = data;
+      this.title = data.title;
+      this.content = data.content;
+      this.img = data.imageUrl;
+      console.log(data);
       
     })
-  }
+   }
 }
