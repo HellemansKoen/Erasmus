@@ -44,9 +44,9 @@ public class AuthController {
         }
     }
 
-    @GetMapping("/getCurrentRole")
-    public String GetCurrentRole(@RequestParam String token){
+    @GetMapping("/getCurrentUser")
+    public User GetCurrentUser(@RequestParam String token){
         User user = jwtUtils.getUserFromToken(token);
-        return user.getRole();
+        return user;
     }
 }

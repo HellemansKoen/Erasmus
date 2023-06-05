@@ -15,6 +15,7 @@ import { NavigationService } from '../service/navigation.service';
 export class LeaderboardPage implements OnInit {
 
   listUsers: any[] = []
+  
   constructor(private userService: UserService, private navigationService: NavigationService) { }
 
   ngOnInit() {
@@ -23,7 +24,7 @@ export class LeaderboardPage implements OnInit {
       this.listUsers.push(users[user])
       }
     })
-    console.log(this.listUsers); // Werkt
+    console.log(this.listUsers);
   }
 
   navigate(url: string) {

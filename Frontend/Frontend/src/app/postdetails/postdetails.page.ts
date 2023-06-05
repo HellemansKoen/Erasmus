@@ -16,6 +16,7 @@ export class PostdetailsPage implements OnInit {
   content = "";
   title = "";
   img =""
+  
   constructor(private postService: PostService) { }
 
   ngOnInit() {
@@ -23,9 +24,7 @@ export class PostdetailsPage implements OnInit {
     this.postService.getPostById(postId).subscribe(data => {
       this.title = data.title;
       this.content = data.content;
-      this.img = data.imageUrl;
-      console.log(data);
-      
+      this.img = data.imageUrl;      
     })
    }
 }

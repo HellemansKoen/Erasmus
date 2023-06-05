@@ -1,30 +1,15 @@
 <ion-header>
-  <ion-toolbar style="background: var(--primary);">
-      <ion-img src="../../assets/icon/logo.png" class="logo"></ion-img>
-  </ion-toolbar>
+    <ion-toolbar style="background: var(--primary);">
+        <ion-img src="../../assets/icon/logo.png" class="logo"></ion-img>
+    </ion-toolbar>
 </ion-header>
 <ion-content [fullscreen]="true">
     <div id="mapId" style="width: 100%; height: 100%">
     </div>
-    <button class="btn-locate btn-circular" (click)="locate()" id="locate" >
+    <button class="btn-locate btn-circular" (click)="locate()" id="locate">
         <ion-icon name="navigate-outline" size="large"></ion-icon>
     </button>
-    <button class="btn-add btn-circular" (click)="navigate('addbin')" id="btnAdd" >
+    <button class="btn-add btn-circular" (click)="navigate('addbin')" id="btnAdd">
         <ion-icon name="trash-outline" size="large"></ion-icon>
     </button>
-    <!-- <div id="myModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <span class="close">&times;</span>
-                <h2>Modal Header</h2>
-            </div>
-            <div class="modal-body">
-                <p>Some text in the Modal Body</p>
-                <p>Some other text...</p>
-            </div>
-            <div class="modal-footer">
-                <h3>Modal Footer</h3>
-            </div>
-        </div>
-    </div> -->
 </ion-content>

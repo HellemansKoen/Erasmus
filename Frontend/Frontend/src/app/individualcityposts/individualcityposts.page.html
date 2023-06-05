@@ -1,42 +1,27 @@
 <ion-content [fullscreen]="true">
-  <ion-header>
-    <ion-toolbar style="background: var(--primary);">
-        <ion-icon name="arrow-back-outline" (click)="navigateBack('cityposts')" class="arrow-back"></ion-icon>
-        <h3 class="ion-text-center">City name item.city</h3>
-    </ion-toolbar>
-  </ion-header>
-  <section class="wrapper ion-padding">
-    <ion-row>
-      <ion-col size="6" *ngFor="let item of listPosts">
-          <ion-card class="card" (click)="navigate(item.postId)">
-              <ion-img src="{{item.imageUrl}}" id="img "></ion-img>
-              <ion-card-header>
-                  <ion-card-title>{{item.city}}</ion-card-title>
-              </ion-card-header>
-          </ion-card>
-      </ion-col>
-    </ion-row>
-    <div class="img-round-border">
-      <ion-img  src="../../assets/images/photos/porto.jpg"></ion-img>
+    <ion-header>
+        <ion-toolbar style="background: var(--primary);">
+            <ion-icon name="arrow-back-outline" (click)="navigateBack('cityposts')" class="arrow-back"></ion-icon>
+            <h3 class="ion-text-center">{{city}}</h3>
+        </ion-toolbar>
+    </ion-header>
+    <div *ngIf="title!=''">
+        <section class="wrapper ion-padding">
+            <div class="img-round-border">
+                <ion-img src="{{img}}"></ion-img>
+            </div>
+            <div>
+                <h4>Categories</h4>
+                <div>
+                    <ion-chip color="primary">Plastic</ion-chip>
+                    <ion-chip color="primary">Paper</ion-chip>
+                    <ion-chip color="primary">General waste</ion-chip>
+                    <ion-chip color="primary">Biological waste</ion-chip>
+                    <ion-chip color="primary">Glass</ion-chip>
+                </div>
+                <h4>{{title}}</h4>
+                <p>{{content}}</p>
+            </div>
+        </section>
     </div>
-    <div>
-      <h4>Categories</h4>
-      <div>
-        <ion-chip color="primary">Plastic</ion-chip>
-        <ion-chip color="primary">Paper</ion-chip>
-        <ion-chip color="primary">General waste</ion-chip>
-        <ion-chip color="primary">Biological waste</ion-chip>
-        <ion-chip color="primary">Glass</ion-chip>
-      </div>
-      <h4>Some text</h4>
-      <p>Lorem ipsum dolor sit amet</p>
-    </div>
-    <ion-col size="12 " *ngIf="listPosts.length==0 ">
-      <ion-card>
-          <ion-card-header>
-              <ion-card-subtitle class="ion-text-center">No posts yet</ion-card-subtitle>
-          </ion-card-header>
-      </ion-card>
-    </ion-col>
-  </section>
 </ion-content>

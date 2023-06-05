@@ -14,16 +14,23 @@ import { NavigationService } from '../service/navigation.service';
 })
 export class IndividualcitypostsPage implements OnInit {
 
-  city = "";
   listPosts: any[] = [];
-
+  city = "";
+  content = "";
+  title = "";
+  img ="";
+  
   constructor(private postService: PostService, private navigationService: NavigationService) { }
 
   ngOnInit() {
     this.city = localStorage.getItem('SinglePostCity') || ""
     this.postService.getAllPostsByCity(this.city).subscribe(posts => {
       for (let post = 0; post < posts.length; post++) {
-        this.listPosts.push(posts[post]);
+        this.content = posts[post].content;
+        this.title = posts[post].title;
+        this.img = posts[post].imageUrl;
+        this.city =  posts[post].city.charAt(0).toUpperCase() + posts[post].city.substring(1);
+        ;
       }
     })
   }

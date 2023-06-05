@@ -16,7 +16,6 @@ export class MenuPage implements OnInit {
   constructor(private navigationService: NavigationService) { }
 
   ngOnInit() {
-    console.log("MENU "+localStorage.getItem('GBtoken'));
   }
 
   navigate(url:string){

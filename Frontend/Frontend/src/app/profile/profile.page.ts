@@ -8,33 +8,32 @@ import { PostService } from '../service/post.service';
 import { UserService } from '../service/user.service';
 
 @Component({
-    selector: 'app-profile',
-    templateUrl: './profile.page.html',
-    styleUrls: ['./profile.page.scss'],
-    standalone: true,
-    imports: [IonicModule, CommonModule, FormsModule, ExploreContainerComponent]
+  selector: 'app-profile',
+  templateUrl: './profile.page.html',
+  styleUrls: ['./profile.page.scss'],
+  standalone: true,
+  imports: [IonicModule, CommonModule, FormsModule, ExploreContainerComponent]
 })
 export class ProfilePage implements OnInit {
 
-
-  listUsers: any[] = []
+  listUsers: any[] = [];
+  username = "";
+  points = ""
   constructor(private userService: UserService, private navigationService: NavigationService) { }
 
-
   ngOnInit() {
-    this.userService.getAllUsersSorted().subscribe(users => {
-      for (let user = 0; user < users.length; user++) {
-      this.listUsers.push(users[user])
-      }
+   this.userService.getCurrentUser(localStorage.getItem('jwtToken') || "").subscribe(user => {
+      console.log(user)
+      this.username = user.username;
+      this.points = user.score;
     })
   }
 
-  logout(){
-    localStorage.setItem('jwtToken',"");
+  logout() {
+    localStorage.setItem('jwtToken', "");
     this.navigate("login");
   }
   navigate(location: string) {
     this.navigationService.navigate(location);
   }
-
 }

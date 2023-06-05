@@ -15,6 +15,7 @@ const CryptoJS = require('crypto-js');
   imports: [IonicModule, CommonModule, FormsModule]
 })
 export class RegisterPage implements OnInit {
+  
   username = "";
   password = "";
   email = "";

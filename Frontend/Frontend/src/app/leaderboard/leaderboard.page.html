@@ -1,33 +1,20 @@
 <ion-content [fullscreen]="true">
-  <ion-header >
-    <ion-toolbar style="background: var(--primary);">
-        <ion-icon name="arrow-back-outline" (click)="navigate('profile')" class="arrow-back"></ion-icon>
-        <h3 class="ion-text-center">Leaderboard</h3>
-    </ion-toolbar>
-  </ion-header>
-  <section class="wrapper ion-padding-top">
-    <ion-grid>
-      <ion-card>
-        <ion-card-header class="user-card-info">
-          <ion-card-content>username</ion-card-content>
-          <ion-card-content>1000</ion-card-content>
-        </ion-card-header>
-      </ion-card>
-      <ion-card>
-        <ion-card-header class="user-card-info">
-          <ion-card-content>username</ion-card-content>
-          <ion-card-content>1000</ion-card-content>
-        </ion-card-header>
-      </ion-card>
-      <ion-col>
-        <ion-card *ngFor="let user of listUsers">
-          <ion-card-header class="user-card-info">
-            <ion-card-content>{{user.username}}</ion-card-content>
-            <ion-card-content>{{user.score}}</ion-card-content>
-          </ion-card-header>
-        </ion-card>
-      </ion-col>
-    </ion-grid>
-  </section>
+    <ion-header>
+        <ion-toolbar style="background: var(--primary);">
+            <ion-icon name="arrow-back-outline" (click)="navigate('profile')" class="arrow-back"></ion-icon>
+            <h3 class="ion-text-center">Leaderboard</h3>
+        </ion-toolbar>
+    </ion-header>
+    <section class="wrapper ion-padding-top">
+        <ion-grid>
+            <ion-col>
+                <ion-card *ngFor="let user of listUsers">
+                    <ion-card-header class="user-card-info">
+                        <ion-card-content>{{user.username}}</ion-card-content>
+                        <ion-card-content>{{user.score}}</ion-card-content>
+                    </ion-card-header>
+                </ion-card>
+            </ion-col>
+        </ion-grid>
+    </section>
 </ion-content>
-

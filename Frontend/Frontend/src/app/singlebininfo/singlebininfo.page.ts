@@ -44,10 +44,12 @@ export class SinglebininfoPage implements OnInit {
 
   confirm() {
     this.voteService.vote("UP", localStorage.getItem("jwtToken") || "", this.binId).subscribe()
+    this.navigate("citymap")
   }
 
   decline() {
     this.voteService.vote("DOWN", localStorage.getItem("jwtToken") || "", this.binId).subscribe()
+    this.navigate("citymap")
   }
   full() {
     this.garbagebinService.full("full", this.binId).subscribe()

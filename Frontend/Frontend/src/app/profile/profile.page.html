@@ -10,8 +10,8 @@
             <ion-card>
                 <ion-card-header class="profile-card">
                     <div>
-                        <ion-card-title>James Doe</ion-card-title>
-                        <ion-card-subtitle>member since February 2023</ion-card-subtitle>
+                        <ion-card-title>{{username}}</ion-card-title>
+                        <ion-card-subtitle>Score: {{points}}</ion-card-subtitle>
                     </div>
                     <ion-avatar>
                         <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
@@ -23,29 +23,29 @@
             </div>
         </ion-col>
         <ion-col>
-          <ion-title>Badges</ion-title>
-          <ion-grid>
-              <ion-row>
-                  <ion-col size="6">
-                      <ion-card>
-                          <ion-card-header class="card-center">
-                              <ion-img class="badge-img" src="../../assets/images/badges/fastprogressbadge.png"></ion-img>
-                              <ion-card-title>Explorer</ion-card-title>
-                              <ion-card-subtitle>You've added 5 bins!</ion-card-subtitle>
-                          </ion-card-header>
-                      </ion-card>
-                  </ion-col>
-                  <ion-col size="6">
-                      <ion-card>
-                          <ion-card-header class="card-center">
-                              <ion-img class="badge-img" src="../../assets/images/badges/firstbinaddedbadge.png"></ion-img>
-                              <ion-card-title>BinIt Member</ion-card-title>
-                              <ion-card-subtitle>You added your first bin</ion-card-subtitle>
-                          </ion-card-header>
-                      </ion-card>
-                  </ion-col>
-              </ion-row>
-          </ion-grid>
+            <ion-title>Badges</ion-title>
+            <ion-grid>
+                <ion-row>
+                    <ion-col size="6">
+                        <ion-card>
+                            <ion-card-header class="card-center">
+                                <ion-img class="badge-img" src="../../assets/images/badges/fastprogressbadge.png"></ion-img>
+                                <ion-card-title>Explorer</ion-card-title>
+                                <ion-card-subtitle>You've added 5 bins!</ion-card-subtitle>
+                            </ion-card-header>
+                        </ion-card>
+                    </ion-col>
+                    <ion-col size="6">
+                        <ion-card>
+                            <ion-card-header class="card-center">
+                                <ion-img class="badge-img" src="../../assets/images/badges/firstbinaddedbadge.png"></ion-img>
+                                <ion-card-title>BinIt Member</ion-card-title>
+                                <ion-card-subtitle>You added your first bin</ion-card-subtitle>
+                            </ion-card-header>
+                        </ion-card>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
         </ion-col>
     </section>
 </ion-content>
