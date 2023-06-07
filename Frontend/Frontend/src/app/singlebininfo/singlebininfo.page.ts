@@ -18,16 +18,15 @@ export class SinglebininfoPage implements OnInit {
 
   binId = 0
   map: Leaflet.Map | undefined
-
+  cat = ""
+  
   constructor(private garbagebinService: GarbagebinService, private voteService: VoteService, private navigationService: NavigationService) {
   }
 
   ngOnInit() {
     this.binId = this.garbagebinService.binId;
-    let bin = document.getElementById("kindOfBin")
-    if (bin != null) {
       let text = this.garbagebinService.kindBin.toString().toLowerCase();
-      bin.innerHTML = text.charAt(0).toUpperCase() + text.substring(1);
+      this.cat = text.charAt(0).toUpperCase() + text.substring(1);
       let empty = document.getElementById("empty")
       let full = document.getElementById("full")
       if (empty != null && full != null) {
@@ -37,7 +36,6 @@ export class SinglebininfoPage implements OnInit {
         } else {
           empty.style.display = "block"
           full.style.display = "none"
-        }
       }
     }
   }
@@ -51,9 +49,11 @@ export class SinglebininfoPage implements OnInit {
     this.voteService.vote("DOWN", localStorage.getItem("jwtToken") || "", this.binId).subscribe()
     this.navigate("citymap")
   }
+
   full() {
     this.garbagebinService.full("full", this.binId).subscribe()
   }
+
   empty() {
     this.garbagebinService.full("empty", this.binId).subscribe()
   }
@@ -82,8 +82,8 @@ export class SinglebininfoPage implements OnInit {
     if (this.map != null) {
       console.log(132);
       var myIcon = Leaflet.icon({
-        iconUrl: '../../assets/images/binPointer.png',
-        iconSize: [50, 50]
+        iconUrl: '../../assets/images/FullbinPointer.png',
+        iconSize: [27, 43]
       });
       Leaflet.marker([Number(this.garbagebinService.latSingleBin), Number(this.garbagebinService.lngSingleBin)], { icon: myIcon }).addTo(this.map);
     }

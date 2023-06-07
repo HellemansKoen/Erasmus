@@ -77,7 +77,7 @@ export class CitymapPage implements OnInit {
         if (this.AllBins[index].state ="empty") {
           myIcon = Leaflet.icon({
             iconUrl: '../../assets/images/binPointer.png',
-            iconSize: [40, 50]
+            iconSize: [27, 43]
           });
         } else {
           myIcon = Leaflet.icon({
@@ -92,7 +92,6 @@ export class CitymapPage implements OnInit {
           this.garbagebinService.lngSingleBin = this.AllBins[index].lng;
           this.garbagebinService.kindBin = this.AllBins[index].kindBin;
           this.garbagebinService.binFull = this.AllBins[index].binFull;
-
           this.navigate("singlebininfo")
         });
         // need to make this in a pop up

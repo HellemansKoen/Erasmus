@@ -1,31 +1,30 @@
 <ion-content [fullscreen]="true">
-  <ion-header>
-    <ion-toolbar style="background: var(--primary);">
-        <ion-icon name="arrow-back-outline" (click)="navigate('citymap')" class="arrow-back"></ion-icon>
-        <h3 class="ion-text-center">Details</h3>
-    </ion-toolbar>
-  </ion-header>
+    <ion-header>
+        <ion-toolbar style="background: var(--primary);">
+            <ion-icon name="arrow-back-outline" (click)="navigate('citymap')" class="arrow-back"></ion-icon>
+            <h3 class="ion-text-center">Details</h3>
+        </ion-toolbar>
+    </ion-header>
     <div id="map" class="map"></div>
     <section class="wrapper ion-padding">
-      <div>
-        <ion-text>
-          <h4>Category</h4>
-          <ion-chip color="primary" id="kindOfBin"></ion-chip>
-          <ion-chip color="primary">General waste</ion-chip>
-        </ion-text>
-      </div>
-      <div>
-        <ion-text>
-          <h3>Does this bin exist?</h3>
-        </ion-text>
-        <ion-button class="ion-margin-top" expand="block" size="large" (click)="confirm()">
-          <ion-icon slot="start" name="checkmark-outline"></ion-icon>
-          Yes!
-        </ion-button>
-        <ion-button class="ion-margin-top" fill="outline" expand="block" size="large" (click)="decline()">
-          <ion-icon slot="start" name="close-outline"></ion-icon>
-          No
-        </ion-button>
-      </div>
+        <div>
+            <ion-text>
+                <h4>Category</h4>
+                <ion-chip color="primary">{{cat}}</ion-chip>
+            </ion-text>
+        </div>
+        <div>
+            <ion-text>
+                <h3>Does this bin exist?</h3>
+            </ion-text>
+            <ion-button class="ion-margin-top" expand="block" size="large" (click)="confirm()">
+                <ion-icon slot="start" name="checkmark-outline"></ion-icon>
+                Yes!
+            </ion-button>
+            <ion-button class="ion-margin-top" fill="outline" expand="block" size="large" (click)="decline()">
+                <ion-icon slot="start" name="close-outline"></ion-icon>
+                No
+            </ion-button>
+        </div>
     </section>
 </ion-content>

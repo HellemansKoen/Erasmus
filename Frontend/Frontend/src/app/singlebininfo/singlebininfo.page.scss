@@ -1,33 +1,32 @@
 .map {
-  width: 100vw;
-  height: 60vh;
+    width: 100vw;
+    height: 60vh;
 }
 
 .wrapper {
-  width: 100%;
-  max-width: 600px;
-  margin: auto;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
 }
 
 .arrow-back {
-  position: fixed;
-  top: 0;
-  left: 5;
-  font-size: 2em;
-  padding: 5px;
-  margin-top: 6px;
-
-  &:hover {
-    cursor: pointer;
-  }
+    position: fixed;
+    top: 0;
+    left: 5;
+    font-size: 2em;
+    padding: 5px;
+    margin-top: 6px;
+    &:hover {
+        cursor: pointer;
+    }
 }
 
 .button-group {
-  display: flex;
-  flex-direction: row;
+    display: flex;
+    flex-direction: row;
 }
 
 .button-item {
-  display: flex;
-  width: 50%;
+    display: flex;
+    width: 50%;
 }

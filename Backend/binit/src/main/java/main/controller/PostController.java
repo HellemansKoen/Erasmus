@@ -17,6 +17,10 @@ public class PostController {
 
     @PostMapping("/addPost")
     public void addPost(@RequestBody Post post) {
+
+        System.out.println("koen");
+        System.out.println(post.getImageUrl().length());
+        //System.out.println(post);
         postService.addPost(post);
     }
 

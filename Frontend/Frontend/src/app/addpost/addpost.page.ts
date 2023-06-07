@@ -42,6 +42,9 @@ export class AddpostPage implements OnInit {
       "date": date,
       "imageUrl": this.imgString
     }
+    console.log(post.imageUrl.length);
+    console.log(post.imageUrl);
+
     this.postService.addPost(post).subscribe(() => console.log("post added"));
     this.navigate("manageposts")
   }

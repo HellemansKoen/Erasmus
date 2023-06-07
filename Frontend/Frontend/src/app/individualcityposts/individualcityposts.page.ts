@@ -29,8 +29,7 @@ export class IndividualcitypostsPage implements OnInit {
         this.content = posts[post].content;
         this.title = posts[post].title;
         this.img = posts[post].imageUrl;
-        this.city =  posts[post].city.charAt(0).toUpperCase() + posts[post].city.substring(1);
-        ;
+        this.city =  posts[post].city.charAt(0).toUpperCase() + posts[post].city.substring(1);        
       }
     })
   }
