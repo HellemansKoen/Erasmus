@@ -21,7 +21,7 @@ public class Post {
     @Column
     private String city;
 
-    @Column
+    @Column(columnDefinition = "LONGTEXT")
     private String content;
 
     @Column(columnDefinition = "LONGTEXT")
